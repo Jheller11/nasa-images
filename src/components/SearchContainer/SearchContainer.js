@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import Input from '../Input/Input'
+import querystring from 'querystring'
 
 class SearchContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      url: 'https://images-api.nasa.gov/search',
+      url: 'https://images-api.nasa.gov/search?',
+      //   inputs = "names" are the parameters from Nasa API to create query string
       inputs: [
-        { name: 'freeText', label: 'Free Text', description: 'paste here' },
-        { name: 'keyword', label: 'Keyword', description: 'paste here' }
+        { name: 'q', label: 'Free Text', description: 'paste here' },
+        { name: 'keywords', label: 'Keyword', description: 'paste here' }
       ]
     }
 
@@ -23,21 +25,18 @@ class SearchContainer extends Component {
     this.setState({
       [target]: value
     })
+    console.log(this.state)
   }
 
   constructURL(e) {
     e.preventDefault()
+    // use querystring to contruct url from this.state (everything except state.inputs and state.url)
     let url = this.state.url
-    let keys = Object.keys(this.state)
-    keys.forEach(key => {
-      if (key === 'url' || key === 'inputs') {
-        console.log(key + '... so i will do nothing')
-      } else {
-        console.log(key + '... this will do something')
-      }
-    })
-
-    this.props.performSearch(url)
+    let object = this.state
+    delete object.inputs
+    delete object.url
+    let query = querystring.stringify(object)
+    this.props.performSearch(url + query)
   }
 
   render() {
