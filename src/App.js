@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.css'
 import SearchContainer from './components/SearchContainer/SearchContainer'
 import ResultsContainer from './components/ResultsContainer/ResultsContainer'
+import Header from './components/Header/Header'
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Switch>
           <Route
             path="/search"

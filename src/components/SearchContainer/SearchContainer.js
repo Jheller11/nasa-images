@@ -12,7 +12,8 @@ class SearchContainer extends Component {
       inputs: [
         { name: 'q', label: 'Free Text', description: 'paste here' },
         { name: 'keywords', label: 'Keyword', description: 'paste here' }
-      ]
+      ],
+      media_type: 'image'
     }
     console.log(props)
     this.handleChange = this.handleChange.bind(this)
