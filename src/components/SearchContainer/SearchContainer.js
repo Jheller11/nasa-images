@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Input from '../Input/Input'
 import querystring from 'querystring'
+import axios from 'axios'
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -13,9 +14,10 @@ class SearchContainer extends Component {
         { name: 'keywords', label: 'Keyword', description: 'paste here' }
       ]
     }
-
+    console.log(props)
     this.handleChange = this.handleChange.bind(this)
     this.constructURL = this.constructURL.bind(this)
+    this.performSearch = this.performSearch.bind(this)
   }
 
   handleChange(e) {
@@ -25,33 +27,53 @@ class SearchContainer extends Component {
     this.setState({
       [target]: value
     })
-    console.log(this.state)
   }
 
   constructURL(e) {
     e.preventDefault()
     // use querystring to contruct url from this.state (everything except state.inputs and state.url)
     let url = this.state.url
-    let object = this.state
-    delete object.inputs
-    delete object.url
-    let query = querystring.stringify(object)
-    this.props.performSearch(url + query)
+    let queryObject = this.state
+    delete queryObject.inputs
+    delete queryObject.url
+    let query = querystring.stringify(queryObject)
+    this.performSearch(url + query)
+  }
+
+  performSearch(url) {
+    console.log(url)
+    // use axios to fetch data with url passed up by SearchContainer
+    axios
+      .get(url)
+      .then(res => {
+        // store data response in state of App component
+        this.props.setResults(res.data.collection.items)
+      })
+      .then(() => {
+        // redirect to results page
+        this.props.history.push('/results')
+      })
+      .catch(err => {
+        // error handling - needs to be improved
+        console.log(err)
+      })
   }
 
   render() {
     let inputs = []
-    this.state.inputs.forEach((item, index) => {
-      inputs.push(
-        <Input
-          handleChange={this.handleChange}
-          name={item.name}
-          label={item.label}
-          description={item.description}
-          key={index}
-        />
-      )
-    })
+    if (this.state.inputs) {
+      this.state.inputs.forEach((item, index) => {
+        inputs.push(
+          <Input
+            handleChange={this.handleChange}
+            name={item.name}
+            label={item.label}
+            description={item.description}
+            key={index}
+          />
+        )
+      })
+    }
     return (
       <div>
         <h4>Image Search:</h4>
