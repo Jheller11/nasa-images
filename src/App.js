@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import './App.css'
-import Input from './components/input/Input'
+import SearchContainer from './components/SearchContainer/SearchContainer'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
   render() {
     return (
       <div className="App">
-        <Input name="test" label="Test" />
+        <SearchContainer />
       </div>
     )
   }
