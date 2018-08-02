@@ -5,7 +5,7 @@ const Input = ({ label, name, handleChange, description }) => {
     <div>
       <label htmlFor={name}> {label}: </label>
       <input onChange={handleChange} type="text" name={name} />
-      <span> {description} </span>
+      <span className="description"> ({description}) </span>
     </div>
   )
 }

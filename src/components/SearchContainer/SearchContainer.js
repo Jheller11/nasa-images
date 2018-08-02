@@ -10,8 +10,12 @@ class SearchContainer extends Component {
       url: 'https://images-api.nasa.gov/search?',
       //   inputs = "names" are the parameters from Nasa API to create query string
       inputs: [
-        { name: 'q', label: 'Free Text', description: 'paste here' },
-        { name: 'keywords', label: 'Keyword', description: 'paste here' }
+        { name: 'q', label: 'Free Text', description: 'Search by all fields.' },
+        {
+          name: 'keywords',
+          label: 'Keyword',
+          description: 'Search by NASA keywords only.'
+        }
       ],
       media_type: 'image'
     }
@@ -78,9 +82,10 @@ class SearchContainer extends Component {
     return (
       <div>
         <h4>Image Search:</h4>
-        <p>Parameters:</p>
+        <p>Simple Search*:</p>
         <div>{inputs}</div>
         <button onClick={this.constructURL}> Search </button>
+        <p>* Advanced search with additional parameters coming soon.</p>
       </div>
     )
   }

@@ -4,8 +4,15 @@ const Result = props => {
   if (props.data.links) {
     console.log(props)
     return (
-      <div>
-        <img src={props.data.links[0].href} alt="search result" />
+      <div className="result">
+        <div className="info">
+          <a href={props.data.href} target="_blank">
+            View Collection
+          </a>
+        </div>
+        <div className="img">
+          <img src={props.data.links[0].href} alt="search result" />
+        </div>
       </div>
     )
   } else {
