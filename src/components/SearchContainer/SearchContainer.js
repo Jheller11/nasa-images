@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Input from '../Input/Input'
 
 class SearchContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       url: 'https://images-api.nasa.gov/search'
     }
@@ -13,6 +13,7 @@ class SearchContainer extends Component {
       <div>
         I am a search container and i have an Input
         <Input name="keyword" label="Keyword" />
+        <button onClick={this.props.performSearch}> Search </button>
       </div>
     )
   }
