@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Result from '../Result/Result'
 
 class ResultsContainer extends Component {
   constructor(props) {
@@ -8,7 +9,14 @@ class ResultsContainer extends Component {
     }
   }
   render() {
-    return <div>I am a results container</div>
+    let results = ['Something went wrong. Please try again']
+    if (this.state.results) {
+      results.pop()
+      this.state.results.forEach((result, index) => {
+        results.push(<Result key={index} data={result} />)
+      })
+    }
+    return <div>{results}</div>
   }
 }
 
