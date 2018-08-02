@@ -5,14 +5,43 @@ class SearchContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      url: 'https://images-api.nasa.gov/search'
+      url: 'https://images-api.nasa.gov/search',
+      inputs: [
+        { name: 'freeText', label: 'Free Text', description: 'paste here' },
+        { name: 'keyword', label: 'Keyword', description: 'paste here' }
+      ]
     }
+
+    this.handleChange = this.handleChange.bind(this)
   }
+
+  handleChange(e) {
+    e.preventDefault()
+    let target = e.target.name
+    let value = e.target.value
+    this.setState({
+      [target]: value
+    })
+  }
+
   render() {
+    let inputs = []
+    this.state.inputs.forEach((item, index) => {
+      inputs.push(
+        <Input
+          handleChange={this.handleChange}
+          name={item.name}
+          label={item.label}
+          description={item.description}
+          key={index}
+        />
+      )
+    })
     return (
       <div>
-        I am a search container and i have an Input
-        <Input name="keyword" label="Keyword" />
+        <h4>Image Search:</h4>
+        <p>Parameters:</p>
+        <div>{inputs}</div>
         <button onClick={this.props.performSearch}> Search </button>
       </div>
     )
