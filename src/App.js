@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import './App.css'
 import SearchContainer from './components/SearchContainer/SearchContainer'
@@ -13,10 +13,13 @@ class App extends Component {
     this.performSearch = this.performSearch.bind(this)
   }
 
-  // rewrite to compile state of search container into url string
-  performSearch(e) {
-    e.preventDefault()
-    console.log('searched')
+  performSearch(url) {
+    console.log(url)
+    // use axios to fetch data with url passed up by SearchContainer
+
+    // store data response in state
+
+    // redirect to results page with response data
   }
 
   render() {
@@ -33,6 +36,11 @@ class App extends Component {
             path="/results"
             render={() => <ResultsContainer results={this.state.results} />}
           />
+          <Route
+            path="/error"
+            render={error => <div>This is where the error goes.</div>}
+          />
+          <Route path="/" render={() => <Redirect to="/search" />} />
         </Switch>
       </div>
     )

@@ -13,6 +13,7 @@ class SearchContainer extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.constructURL = this.constructURL.bind(this)
   }
 
   handleChange(e) {
@@ -22,6 +23,21 @@ class SearchContainer extends Component {
     this.setState({
       [target]: value
     })
+  }
+
+  constructURL(e) {
+    e.preventDefault()
+    let url = this.state.url
+    let keys = Object.keys(this.state)
+    keys.forEach(key => {
+      if (key === 'url' || key === 'inputs') {
+        console.log(key + '... so i will do nothing')
+      } else {
+        console.log(key + '... this will do something')
+      }
+    })
+
+    this.props.performSearch(url)
   }
 
   render() {
@@ -42,7 +58,7 @@ class SearchContainer extends Component {
         <h4>Image Search:</h4>
         <p>Parameters:</p>
         <div>{inputs}</div>
-        <button onClick={this.props.performSearch}> Search </button>
+        <button onClick={this.constructURL}> Search </button>
       </div>
     )
   }
