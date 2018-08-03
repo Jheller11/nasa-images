@@ -11,11 +11,13 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      history: []
+      history: [],
+      saved: []
     }
 
     this.setResults = this.setResults.bind(this)
     this.saveSearch = this.saveSearch.bind(this)
+    this.saveImage = this.saveImage.bind(this)
   }
 
   setResults(results) {
@@ -28,6 +30,16 @@ class App extends Component {
     this.setState({
       history: searches
     })
+  }
+
+  saveImage(e) {
+    console.log(e.target.name)
+    let images = this.state.saved
+    images.push(e.target.name)
+    this.setState({
+      saved: images
+    })
+    console.log(this.state.saved)
   }
 
   render() {
@@ -47,7 +59,12 @@ class App extends Component {
           />
           <Route
             path="/results"
-            render={() => <ResultsContainer results={this.state.results} />}
+            render={() => (
+              <ResultsContainer
+                results={this.state.results}
+                saveImage={this.saveImage}
+              />
+            )}
           />
           <Route path="/apod" render={() => <APOD />} />
           <Route

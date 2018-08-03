@@ -47,6 +47,16 @@ class ResultsContainer extends Component {
               Collection
             </a>
           )
+        },
+        {
+          id: 'saveButton',
+          Header: 'Action',
+          accessor: d => d.href,
+          Cell: props => (
+            <button onClick={this.props.saveImage} name={props.value}>
+              Save
+            </button>
+          )
         }
       ]
     }
