@@ -5,7 +5,7 @@ const SearchHistory = props => {
   props.history.forEach((item, index) => {
     searches.push(
       <li key={index}>
-        <a href="/">{item}</a>
+        <p>{item}</p>
       </li>
     )
   })

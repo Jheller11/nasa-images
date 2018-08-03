@@ -6,6 +6,7 @@ import ResultsContainer from './components/ResultsContainer/ResultsContainer'
 import Header from './components/Header/Header'
 import APOD from './components/APOD/APOD'
 import SearchHistory from './components/SearchHistory/SearchHistory'
+import Saved from './components/Saved/Saved'
 
 class App extends Component {
   constructor() {
@@ -35,7 +36,7 @@ class App extends Component {
   saveImage(e) {
     console.log(e.target.name)
     let images = this.state.saved
-    images.push(e.target.name)
+    images.push({ link: e.target.name })
     this.setState({
       saved: images
     })
@@ -70,6 +71,10 @@ class App extends Component {
           <Route
             path="/history"
             render={() => <SearchHistory history={this.state.history} />}
+          />
+          <Route
+            path="/saved"
+            render={() => <Saved saved={this.state.saved} />}
           />
           <Route path="/" render={() => <Redirect to="/search" />} />
         </Switch>
