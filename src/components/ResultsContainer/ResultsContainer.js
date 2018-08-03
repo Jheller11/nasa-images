@@ -34,13 +34,19 @@ class ResultsContainer extends Component {
           id: 'image',
           Header: 'Preview Image',
           accessor: d => d.links[0].href,
-          Cell: props => <img src={props.value} alt="search result" />
+          Cell: props => (
+            <img className="preview" src={props.value} alt="search result" />
+          )
         },
         {
           id: 'collectionUrl',
           Header: 'Link to NASA Collection',
           accessor: d => d.href,
-          Cell: props => <a href={props.value}>Collection</a>
+          Cell: props => (
+            <a href={props.value} target="_blank">
+              Collection
+            </a>
+          )
         }
       ]
     }
@@ -49,7 +55,7 @@ class ResultsContainer extends Component {
     return (
       <ReactTable
         data={this.state.results}
-        defaultPageSize="5"
+        defaultPageSize={5}
         columns={this.state.columns}
       />
     )

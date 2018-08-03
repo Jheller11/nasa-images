@@ -6,7 +6,8 @@ const Header = () => {
     <header>
       <h1>NASA Image Search</h1>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/">Home</Link> ||
+        <Link to="/apod"> Astronomy Picture of the Day</Link>
       </nav>
     </header>
   )

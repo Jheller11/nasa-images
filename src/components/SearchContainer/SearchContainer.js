@@ -19,7 +19,6 @@ class SearchContainer extends Component {
       ],
       media_type: 'image'
     }
-    console.log(props)
     this.handleChange = this.handleChange.bind(this)
     this.constructURL = this.constructURL.bind(this)
     this.performSearch = this.performSearch.bind(this)
@@ -46,7 +45,6 @@ class SearchContainer extends Component {
   }
 
   performSearch(url) {
-    console.log(url)
     // use axios to fetch data with url passed up by SearchContainer
     axios
       .get(url)
