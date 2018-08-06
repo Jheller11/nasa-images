@@ -17,6 +17,7 @@ class SearchContainer extends Component {
           description: 'Search by NASA keywords only.'
         }
       ],
+      simple: true,
       media_type: 'image'
     }
     this.handleChange = this.handleChange.bind(this)
@@ -40,6 +41,7 @@ class SearchContainer extends Component {
     let queryObject = this.state
     delete queryObject.inputs
     delete queryObject.url
+    delete queryObject.simple
     let query = querystring.stringify(queryObject)
     this.performSearch(url + query)
   }
@@ -66,7 +68,8 @@ class SearchContainer extends Component {
 
   render() {
     let inputs = []
-    if (this.state.inputs) {
+    // advanced search - display all search fields
+    if (this.state.simple) {
       this.state.inputs.forEach((item, index) => {
         inputs.push(
           <Input
@@ -78,14 +81,27 @@ class SearchContainer extends Component {
           />
         )
       })
+    } else {
+      // simple search - display only free text field
+      inputs.push(
+        <Input
+          handleChange={this.handleChange}
+          name={this.state.inputs[0].name}
+          label={this.state.inputs[0].label}
+          description={this.state.inputs[0].description}
+          key={1}
+        />
+      )
     }
     return (
       <div>
         <h4>Image Search:</h4>
-        <p>Simple Search*:</p>
+        <p>Simple Search:</p>
+        <button onClick={() => this.setState({ simple: !this.state.simple })}>
+          Advanced
+        </button>
         <div>{inputs}</div>
         <button onClick={this.constructURL}> Search </button>
-        <p>* Advanced search with additional parameters coming soon.</p>
       </div>
     )
   }
