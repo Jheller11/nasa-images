@@ -15,6 +15,26 @@ class SearchContainer extends Component {
           name: 'keywords',
           label: 'Keyword',
           description: 'Search by NASA keywords only.'
+        },
+        {
+          name: 'description',
+          label: 'Description',
+          description: 'Search for matching words in the description.'
+        },
+        {
+          name: 'center',
+          label: 'NASA Center',
+          description: 'Search by NASA center which published the image.'
+        },
+        {
+          name: 'year_start',
+          label: 'Start Year',
+          description: 'Limit results to images after this year.'
+        },
+        {
+          name: 'year_end',
+          label: 'End Year',
+          description: 'Limit results to images before this year.'
         }
       ],
       simple: true,
@@ -38,7 +58,7 @@ class SearchContainer extends Component {
     e.preventDefault()
     // use querystring to contruct url from this.state (everything except state.inputs and state.url)
     let url = this.state.url
-    let queryObject = this.state
+    let queryObject = Object.assign({}, this.state)
     delete queryObject.inputs
     delete queryObject.url
     delete queryObject.simple
@@ -55,13 +75,10 @@ class SearchContainer extends Component {
         this.props.setResults(res.data.collection.items)
         // store search query in state of App component
         this.props.saveSearch(url)
-      })
-      .then(() => {
         // redirect to results page
         this.props.history.push('/results')
       })
       .catch(err => {
-        // error handling - needs to be improved
         console.log(err)
       })
   }
@@ -69,7 +86,7 @@ class SearchContainer extends Component {
   render() {
     let inputs = []
     // advanced search - display all search fields
-    if (this.state.simple) {
+    if (!this.state.simple) {
       this.state.inputs.forEach((item, index) => {
         inputs.push(
           <Input
@@ -96,10 +113,15 @@ class SearchContainer extends Component {
     return (
       <div>
         <h4>Image Search:</h4>
-        <p>Simple Search:</p>
-        <button onClick={() => this.setState({ simple: !this.state.simple })}>
-          Advanced
-        </button>
+        <p>
+          <button onClick={() => this.setState({ simple: true })}>
+            Simple
+          </button>
+          <button onClick={() => this.setState({ simple: false })}>
+            Advanced
+          </button>
+        </p>
+
         <div>{inputs}</div>
         <button onClick={this.constructURL}> Search </button>
       </div>
