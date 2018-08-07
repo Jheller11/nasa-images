@@ -20,3 +20,14 @@ nav > a {
   opacity: 0.75;
   font-size: 75%;
 }
+
+.form-group {
+  display: grid;
+  grid-template-columns: 10% 10% 50%;
+  grid-template-rows: 100%;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 80%;
+}
