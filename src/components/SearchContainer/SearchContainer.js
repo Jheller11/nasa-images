@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Input from '../Input/Input'
 import querystring from 'querystring'
 import axios from 'axios'
+import MediaSelector from '../MediaSelector/MediaSelector'
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -75,8 +76,10 @@ class SearchContainer extends Component {
         this.props.setResults(res.data.collection.items)
         // store search query in state of App component
         this.props.saveSearch(url)
-        // redirect to results page
-        this.props.history.push('/results')
+        // redirect to appropriate results container/table
+        this.state.media_type === 'image'
+          ? this.props.history.push('/results/images')
+          : this.props.history.push('/results/videos')
       })
       .catch(err => {
         console.log(err)
@@ -121,7 +124,7 @@ class SearchContainer extends Component {
             Advanced
           </button>
         </p>
-
+        <MediaSelector handleChange={this.handleChange} />
         <div>{inputs}</div>
         <button onClick={this.constructURL}> Search </button>
       </div>

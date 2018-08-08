@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
-class ResultsContainer extends Component {
+class ImageResultsContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -72,4 +72,4 @@ class ResultsContainer extends Component {
   }
 }
 
-export default ResultsContainer
+export default ImageResultsContainer

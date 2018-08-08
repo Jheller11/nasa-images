@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.css'
 import SearchContainer from './components/SearchContainer/SearchContainer'
-import ResultsContainer from './components/ResultsContainer/ResultsContainer'
+import ImageResultsContainer from './components/ImageResultsContainer/ImageResultsContainer'
 import Header from './components/Header/Header'
 import APOD from './components/APOD/APOD'
 import SearchHistory from './components/SearchHistory/SearchHistory'
@@ -13,7 +13,8 @@ class App extends Component {
     super()
     this.state = {
       history: [],
-      saved: []
+      saved: [],
+      media_type: ''
     }
 
     this.setResults = this.setResults.bind(this)
@@ -22,7 +23,12 @@ class App extends Component {
   }
 
   setResults(results) {
-    this.setState({ results: results })
+    console.log(results)
+    this.setState({
+      results: results,
+      media_type: results[0].data[0].media_type
+    })
+    console.log(this.state.media_type)
   }
 
   saveSearch(search) {
@@ -59,9 +65,9 @@ class App extends Component {
             )}
           />
           <Route
-            path="/results"
+            path="/results/images"
             render={() => (
-              <ResultsContainer
+              <ImageResultsContainer
                 results={this.state.results}
                 saveImage={this.saveImage}
               />
