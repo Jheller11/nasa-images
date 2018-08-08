@@ -7,6 +7,7 @@ import Header from './components/Header/Header'
 import APOD from './components/APOD/APOD'
 import SearchHistory from './components/SearchHistory/SearchHistory'
 import Saved from './components/Saved/Saved'
+import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
 
 class App extends Component {
   constructor() {
@@ -71,6 +72,12 @@ class App extends Component {
                 results={this.state.results}
                 saveImage={this.saveImage}
               />
+            )}
+          />
+          <Route
+            path="/results/videos"
+            render={() => (
+              <VideoResultsContainer results={this.state.results} />
             )}
           />
           <Route path="/apod" render={() => <APOD />} />

@@ -37,7 +37,11 @@ class APOD extends Component {
       media = <img src={this.state.src} alt={'APOD'} />
     } else if (this.state.mediaType === 'video') {
       media = (
-        <iframe src={this.state.src} style={{ height: 400, width: 600 }} />
+        <iframe
+          src={this.state.src}
+          title="video"
+          style={{ height: 400, width: 600 }}
+        />
       )
     }
     return (
