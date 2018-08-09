@@ -24,12 +24,10 @@ class App extends Component {
   }
 
   setResults(results) {
-    console.log(results)
     this.setState({
       results: results,
       media_type: results[0].data[0].media_type
     })
-    console.log(this.state.media_type)
   }
 
   saveSearch(search) {
@@ -40,14 +38,12 @@ class App extends Component {
     })
   }
 
-  saveImage(e) {
-    console.log(e.target.name)
+  saveImage(image) {
     let images = this.state.saved
-    images.push({ link: e.target.name })
+    images.push(image)
     this.setState({
       saved: images
     })
-    console.log(this.state.saved)
   }
 
   render() {

@@ -57,6 +57,7 @@ class VideoResultsContainer extends Component {
           data={this.state.results}
           defaultPageSize={5}
           columns={this.state.columns}
+          className="-striped -highlight"
         />
       </div>
     )

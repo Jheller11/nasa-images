@@ -53,20 +53,30 @@ class ImageResultsContainer extends Component {
           Header: 'Action',
           accessor: d => d.href,
           Cell: props => (
-            <button onClick={this.props.saveImage} name={props.value}>
+            <button onClick={this.handleClick} name={props.value}>
               Save
             </button>
           )
         }
       ]
     }
+    this.handleClick = this.handleClick.bind(this)
   }
+
+  handleClick(e) {
+    let target = this.state.results.filter(result => {
+      return result.href === e.target.name
+    })
+    this.props.saveImage(target[0])
+  }
+
   render() {
     return (
       <ReactTable
         data={this.state.results}
         defaultPageSize={5}
         columns={this.state.columns}
+        className="-striped -highlight"
       />
     )
   }
