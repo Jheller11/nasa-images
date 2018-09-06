@@ -1,21 +1,37 @@
-.preview {
-  height: 150px;
-  width: 200px;
+/* Body */
+
+main {
+  padding-top: 40px;
 }
 
-li {
-  list-style: none;
-}
-
+/*  Header and Nav */
 header {
-  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  background: white;
+  top: 0;
+  left: 0;
+  border-bottom: 1px groove #e5d352;
 }
 
 nav > a {
   text-decoration: none;
-  color: rgb(35, 35, 252);
+  color: #221d23;
+  padding: 10px;
 }
 
+nav > div {
+  color: #ac3931;
+  display: inline;
+  margin-right: 10px;
+}
+
+nav > a:hover {
+  background: #bcd2ee;
+}
+
+/* Form */
 .description {
   opacity: 0.75;
   font-size: 75%;
@@ -30,4 +46,15 @@ nav > a {
 
 input {
   width: 80%;
+}
+
+li {
+  list-style: none;
+}
+
+/* Results */
+
+.preview {
+  height: 150px;
+  width: 200px;
 }

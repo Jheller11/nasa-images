@@ -51,44 +51,46 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Switch>
-          <Route
-            path="/search"
-            render={props => (
-              <SearchContainer
-                {...props}
-                setResults={this.setResults}
-                saveSearch={this.saveSearch}
-              />
-            )}
-          />
-          <Route
-            path="/results/images"
-            render={() => (
-              <ImageResultsContainer
-                results={this.state.results}
-                saveImage={this.saveImage}
-              />
-            )}
-          />
-          <Route
-            path="/results/videos"
-            render={() => (
-              <VideoResultsContainer results={this.state.results} />
-            )}
-          />
-          <Route path="/apod" render={() => <APOD />} />
-          <Route
-            path="/history"
-            render={() => <SearchHistory history={this.state.history} />}
-          />
-          <Route
-            path="/saved"
-            render={() => <Saved saved={this.state.saved} />}
-          />
-          <Route path="/help" render={() => <Help />} />
-          <Route path="/" render={() => <Redirect to="/search" />} />
-        </Switch>
+        <main>
+          <Switch>
+            <Route
+              path="/search"
+              render={props => (
+                <SearchContainer
+                  {...props}
+                  setResults={this.setResults}
+                  saveSearch={this.saveSearch}
+                />
+              )}
+            />
+            <Route
+              path="/results/images"
+              render={() => (
+                <ImageResultsContainer
+                  results={this.state.results}
+                  saveImage={this.saveImage}
+                />
+              )}
+            />
+            <Route
+              path="/results/videos"
+              render={() => (
+                <VideoResultsContainer results={this.state.results} />
+              )}
+            />
+            <Route path="/apod" render={() => <APOD />} />
+            <Route
+              path="/history"
+              render={() => <SearchHistory history={this.state.history} />}
+            />
+            <Route
+              path="/saved"
+              render={() => <Saved saved={this.state.saved} />}
+            />
+            <Route path="/help" render={() => <Help />} />
+            <Route path="/" render={() => <Redirect to="/search" />} />
+          </Switch>
+        </main>
       </div>
     )
   }
