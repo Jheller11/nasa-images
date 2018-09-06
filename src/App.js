@@ -8,6 +8,7 @@ import APOD from './components/APOD/APOD'
 import SearchHistory from './components/SearchHistory/SearchHistory'
 import Saved from './components/Saved/Saved'
 import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
+import Help from './components/Help/Help'
 
 class App extends Component {
   constructor() {
@@ -85,6 +86,7 @@ class App extends Component {
             path="/saved"
             render={() => <Saved saved={this.state.saved} />}
           />
+          <Route path="/help" render={() => <Help />} />
           <Route path="/" render={() => <Redirect to="/search" />} />
         </Switch>
       </div>
