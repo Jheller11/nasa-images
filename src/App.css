@@ -56,6 +56,12 @@ input {
   width: 200px;
 }
 
+/* APOD */
+
+.apod {
+  max-width: 800px;
+}
+
 /* Color Scheme:
 medium: #537D8D
 light: #BCD2EE

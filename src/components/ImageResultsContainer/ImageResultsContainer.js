@@ -35,7 +35,9 @@ class ImageResultsContainer extends Component {
           Header: 'Preview Image',
           accessor: d => d.links[0].href,
           Cell: props => (
-            <img className="preview" src={props.value} alt="search result" />
+            <div onClick={this.handleView}>
+              <img className="preview" src={props.value} alt="search result" />
+            </div>
           )
         },
         {
@@ -53,31 +55,39 @@ class ImageResultsContainer extends Component {
           Header: 'Action',
           accessor: d => d.href,
           Cell: props => (
-            <button onClick={this.handleClick} name={props.value}>
+            <button onClick={this.handleSave} name={props.value}>
               Save
             </button>
           )
         }
       ]
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSave = this.handleSave.bind(this)
+    this.handleView = this.handleView.bind(this)
   }
 
-  handleClick(e) {
+  handleSave(e) {
     let target = this.state.results.filter(result => {
       return result.href === e.target.name
     })
     this.props.saveImage(target[0])
   }
 
+  handleView(e) {}
+
   render() {
     return (
-      <ReactTable
-        data={this.state.results}
-        defaultPageSize={5}
-        columns={this.state.columns}
-        className="-striped -highlight"
-      />
+      <div>
+        <p className="description">
+          *Click on a preview image to view full size.
+        </p>
+        <ReactTable
+          data={this.state.results}
+          defaultPageSize={5}
+          columns={this.state.columns}
+          className="-striped -highlight"
+        />
+      </div>
     )
   }
 }

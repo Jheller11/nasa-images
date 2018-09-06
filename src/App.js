@@ -9,6 +9,7 @@ import SearchHistory from './components/SearchHistory/SearchHistory'
 import Saved from './components/Saved/Saved'
 import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
 import Help from './components/Help/Help'
+import Error from './components/Error/Error'
 
 class App extends Component {
   constructor() {
@@ -22,6 +23,7 @@ class App extends Component {
     this.setResults = this.setResults.bind(this)
     this.saveSearch = this.saveSearch.bind(this)
     this.saveImage = this.saveImage.bind(this)
+    this.saveErr = this.saveErr.bind(this)
   }
 
   setResults(results) {
@@ -44,6 +46,12 @@ class App extends Component {
     images.push(image)
     this.setState({
       saved: images
+    })
+  }
+
+  saveErr(err) {
+    this.setState({
+      error: `${err}`
     })
   }
 
@@ -78,7 +86,10 @@ class App extends Component {
                 <VideoResultsContainer results={this.state.results} />
               )}
             />
-            <Route path="/apod" render={() => <APOD />} />
+            <Route
+              path="/apod"
+              render={props => <APOD {...props} saveErr={this.saveErr} />}
+            />
             <Route
               path="/history"
               render={() => <SearchHistory history={this.state.history} />}
@@ -88,6 +99,10 @@ class App extends Component {
               render={() => <Saved saved={this.state.saved} />}
             />
             <Route path="/help" render={() => <Help />} />
+            <Route
+              path="/error"
+              render={() => <Error error={this.state.error} />}
+            />
             <Route path="/" render={() => <Redirect to="/search" />} />
           </Switch>
         </main>
