@@ -115,7 +115,7 @@ class SearchContainer extends Component {
     }
     return (
       <div>
-        <h4>Image Search:</h4>
+        <h4>Media Search:</h4>
         <p>
           <button onClick={() => this.setState({ simple: true })}>
             Simple
