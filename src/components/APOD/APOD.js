@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import LoadingScreen from '../LoadingScreen/LoadingScreen'
 
 class APOD extends Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class APOD extends Component {
       date: '',
       loading: true
     }
+
+    this.timer = this.timer.bind(this)
   }
 
   componentDidMount() {
@@ -24,14 +27,22 @@ class APOD extends Component {
           title: res.data.title,
           explanation: res.data.explanation,
           date: res.data.date,
-          mediaType: res.data.media_type,
-          loading: false
+          mediaType: res.data.media_type
         })
+        this.timer()
       })
       .catch(err => {
         this.props.history.push('/error')
         this.props.saveErr(err)
       })
+  }
+
+  timer() {
+    setInterval(() => {
+      this.setState({
+        loading: false
+      })
+    }, 3000)
   }
 
   render() {
@@ -48,7 +59,9 @@ class APOD extends Component {
         />
       )
     }
-    return (
+    let render = this.state.loading ? (
+      <LoadingScreen />
+    ) : (
       <div>
         <h3>
           {this.state.title} ({this.state.date})
@@ -57,6 +70,8 @@ class APOD extends Component {
         <p>Description: {this.state.explanation}</p>
       </div>
     )
+
+    return <div>{render}</div>
   }
 }
 

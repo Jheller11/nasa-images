@@ -6,13 +6,13 @@ const LoadingScreen = () => {
   return (
     <div className="loading">
       <ReactCssTransitionGroup
-        transitionName="Stars"
+        transitionName="Rocket"
         transitionAppear
-        transitionAppearTimeout={1000}
+        transitionAppearTimeout={100000}
         transitionEnter={false}
         transitionLeave={false}
       >
-        <div className="star">&#x2605;</div>
+        <img src="/rocket.png" />
       </ReactCssTransitionGroup>
     </div>
   )

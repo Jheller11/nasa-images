@@ -1,21 +1,15 @@
 .loading {
   width: 100%;
   height: 600px;
-  top: -20px;
-  position: absolute;
 }
 
-.Stars-appear {
+.Rocket-appear {
   opacity: 0;
-  transform: translateY(0px);
+  transform: translateY(500px) rotate(-45deg) scale(2);
 }
 
-.Stars-appear.Stars-appear-active {
+.Rocket-appear.Rocket-appear-active {
   opacity: 1;
-  transform: translateY(500px) translateX(750px);
-  transition: all 1s ease-in;
-}
-
-.star {
-  font-size: 30%;
+  transform: translateX(1000px);
+  transition: all 2s ease-in;
 }

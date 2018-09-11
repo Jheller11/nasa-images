@@ -10,7 +10,6 @@ import Saved from './components/Saved/Saved'
 import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
 import Help from './components/Help/Help'
 import Error from './components/Error/Error'
-import LoadingScreen from './components/LoadingScreen/LoadingScreen'
 
 class App extends Component {
   constructor() {
@@ -62,7 +61,6 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
-            <Route path="/loading" render={() => <LoadingScreen />} />
             <Route
               path="/search"
               render={props => (
