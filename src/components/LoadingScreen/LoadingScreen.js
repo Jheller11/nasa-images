@@ -7,12 +7,12 @@ const LoadingScreen = () => {
     <div className="loading">
       <ReactCssTransitionGroup
         transitionName="Stars"
-        transitionAppear={true}
+        transitionAppear
         transitionAppearTimeout={1000}
         transitionEnter={false}
         transitionLeave={false}
       >
-        <p>STAR</p>
+        <div className="star">&#x2605;</div>
       </ReactCssTransitionGroup>
     </div>
   )
