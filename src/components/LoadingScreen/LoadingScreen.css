@@ -1,0 +1,15 @@
+.loading {
+  width: 100%;
+  height: 600px;
+}
+
+.Stars-appear {
+  opacity: 0.01;
+  transform: translateY(0px);
+}
+
+.Stars-appear.Stars-appear-active {
+  opacity: 1;
+  transform: translateY(500px) translateX(600px);
+  transition: all 1s ease-in;
+}
