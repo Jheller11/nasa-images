@@ -24,4 +24,10 @@ describe('Error', () => {
     const divs = error().find('div')
     expect(divs.length).toBeGreaterThan(0)
   })
+
+  it('renders an error prop', () => {
+    props.error = 'Testing error.'
+    const paragraph = error().find('p')
+    expect(paragraph.contains('Testing error.')).toEqual(true)
+  })
 })
