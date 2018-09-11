@@ -25,7 +25,7 @@ class APOD extends Component {
           explanation: res.data.explanation,
           date: res.data.date,
           mediaType: res.data.media_type,
-          loading: true
+          loading: false
         })
       })
       .catch(err => {
