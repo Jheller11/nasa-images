@@ -7,7 +7,7 @@ const Help = () => {
       <p>
         This application is designed to access several of NASA's open data
         sources. General information is available at{' '}
-        <a href="https://api.nasa.gov/index.html">
+        <a href="https://api.nasa.gov/index.html" target="_blank">
           https://api.nasa.gov/index.html
         </a>
         .
@@ -18,7 +18,7 @@ const Help = () => {
           <h5>Astronomy Picture of the Day</h5>
           <p>
             Link:{' '}
-            <a href="https://api.nasa.gov/api.html#apod">
+            <a href="https://api.nasa.gov/api.html#apod" target="_blank">
               https://api.nasa.gov/api.html#apod
             </a>
           </p>
@@ -27,7 +27,7 @@ const Help = () => {
           <h5>EPIC (Earth Polychromatic Imaging Camera)</h5>
           <p>
             Link:{' '}
-            <a href="https://epic.gsfc.nasa.gov/about/api">
+            <a href="https://epic.gsfc.nasa.gov/about/api" target="_blank">
               https://epic.gsfc.nasa.gov/about/api
             </a>
           </p>
