@@ -91,6 +91,11 @@ input {
   max-width: 800px;
 }
 
+/* Epic */
+
+#epic {
+  max-height: 600px;
+}
 /* Color Scheme:
 medium: #537D8D
 light: #BCD2EE

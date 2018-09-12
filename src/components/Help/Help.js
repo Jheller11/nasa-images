@@ -24,6 +24,15 @@ const Help = () => {
           </p>
         </li>
         <li>
+          <h5>EPIC (Earth Polychromatic Imaging Camera)</h5>
+          <p>
+            Link:{' '}
+            <a href="https://epic.gsfc.nasa.gov/about/api">
+              https://epic.gsfc.nasa.gov/about/api
+            </a>
+          </p>
+        </li>
+        <li>
           <h5>NASA Image and Video Library</h5>
           <p>
             Link:{' '}

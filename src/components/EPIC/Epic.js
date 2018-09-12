@@ -24,13 +24,13 @@ class Epic extends Component {
   }
 
   render() {
-    console.log(this.state.images[0])
     let image = this.state.images[0]
     return (
       <div>
         <img
+          id="epic"
+          src="https://epic.gsfc.nasa.gov/archive/natural/2015/10/31/png/epic_1b_20151031074844.png"
           alt="epic"
-          src="https://api.nasa.gov/EPIC/api/natural/2018/09/09/png/epic_1b_20180909003633.png?api_key=DEMO_KEY"
         />
       </div>
     )
