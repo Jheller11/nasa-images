@@ -114,19 +114,35 @@ class SearchContainer extends Component {
       )
     }
     return (
-      <div>
-        <h4>Media Search:</h4>
-        <p>
-          <button onClick={() => this.setState({ simple: true })}>
-            Simple
-          </button>
-          <button onClick={() => this.setState({ simple: false })}>
-            Advanced
-          </button>
-        </p>
-        <MediaSelector handleChange={this.handleChange} />
-        <div>{inputs}</div>
-        <button onClick={this.constructURL}> Search </button>
+      <div className="">
+        <div className="search-container">
+          <div className="center">
+            <h4>Media Search:</h4>
+          </div>
+          <p>
+            <button onClick={() => this.setState({ simple: true })}>
+              Simple
+            </button>
+            <button onClick={() => this.setState({ simple: false })}>
+              Advanced
+            </button>
+          </p>
+          <MediaSelector handleChange={this.handleChange} />
+          <div>{inputs}</div>
+          <div className="center">
+            <button onClick={this.constructURL}> Search </button>
+          </div>
+        </div>
+        <div className="twitter">
+          <a
+            className="twitter-timeline"
+            data-lang="en"
+            data-height="600"
+            href="https://twitter.com/NASA?ref_src=twsrc%5Etfw"
+          >
+            Tweets by NASA
+          </a>{' '}
+        </div>
       </div>
     )
   }
