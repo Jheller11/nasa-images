@@ -8,11 +8,11 @@ const LoadingScreen = () => {
       <ReactCssTransitionGroup
         transitionName="Rocket"
         transitionAppear
-        transitionAppearTimeout={100000}
+        transitionAppearTimeout={10000}
         transitionEnter={false}
         transitionLeave={false}
       >
-        <img src="/rocket.png" />
+        <img src="/rocket.png" alt="loading" />
       </ReactCssTransitionGroup>
     </div>
   )

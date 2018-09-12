@@ -10,6 +10,7 @@ import Saved from './components/Saved/Saved'
 import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
 import Help from './components/Help/Help'
 import Error from './components/Error/Error'
+import Epic from './components/EPIC/Epic'
 
 class App extends Component {
   constructor() {
@@ -98,6 +99,7 @@ class App extends Component {
               path="/saved"
               render={() => <Saved saved={this.state.saved} />}
             />
+            <Route path="/epic" render={() => <Epic />} />
             <Route path="/help" render={() => <Help />} />
             <Route
               path="/error"
