@@ -37,10 +37,9 @@ nav > a {
   padding: 10px;
 }
 
-nav > div {
+nav > #title {
   color: #ac3931;
   display: inline;
-  margin-right: 10px;
 }
 
 nav > a:hover {

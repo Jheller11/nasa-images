@@ -6,12 +6,12 @@ const Header = () => {
     <header>
       <nav>
         <Link id="title" to="/">
-          NASA Images
+          NASA Image Finder
         </Link>
         <span>|</span>
         <Link to="/apod">Astronomy Picture of the Day</Link>
-        <Link to="/epic">Earth</Link>
-        <Link to="/search">Search</Link>
+        <Link to="/epic">Earth (EPIC)</Link>
+        <Link to="/search">Image Search</Link>
         <Link to="/help">About</Link>
       </nav>
     </header>
