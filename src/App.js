@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import SearchContainer from './components/SearchContainer/SearchContainer'
 import ImageResultsContainer from './components/ImageResultsContainer/ImageResultsContainer'
@@ -9,6 +9,7 @@ import VideoResultsContainer from './components/VideoResultsContainer/VideoResul
 import Help from './components/Help/Help'
 import Error from './components/Error/Error'
 import Epic from './components/EPIC/Epic'
+import Home from './components/Home/Home'
 
 class App extends Component {
   constructor() {
@@ -67,7 +68,7 @@ class App extends Component {
                   {...props}
                   setResults={this.setResults}
                   saveSearch={this.saveSearch}
-                  history={this.state.history}
+                  searchHistory={this.state.history}
                   saved={this.state.saved}
                 />
               )}
@@ -97,7 +98,7 @@ class App extends Component {
               path="/error"
               render={() => <Error error={this.state.error} />}
             />
-            <Route path="/" render={() => <Redirect to="/search" />} />
+            <Route path="/" render={() => <Home />} />
           </Switch>
         </main>
       </div>

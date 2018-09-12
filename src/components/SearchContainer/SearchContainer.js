@@ -133,7 +133,7 @@ class SearchContainer extends Component {
             <button onClick={this.constructURL}> Search </button>
           </div>
         </div>
-        <SearchHistory history={this.props.history} />
+        <SearchHistory searchHistory={this.props.searchHistory} />
         <Saved saved={this.props.saved} />
       </div>
     )
