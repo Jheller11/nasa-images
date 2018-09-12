@@ -118,9 +118,7 @@ class SearchContainer extends Component {
     return (
       <div className="">
         <div className="search-container">
-          <div className="center">
-            <h4>Media Search:</h4>
-          </div>
+          <h4>New Search:</h4>
           <p>
             <button onClick={() => this.setState({ simple: true })}>
               Simple
@@ -135,18 +133,8 @@ class SearchContainer extends Component {
             <button onClick={this.constructURL}> Search </button>
           </div>
         </div>
-        <Saved saved={this.props.saved} />
         <SearchHistory history={this.props.history} />
-        <div className="twitter">
-          <a
-            className="twitter-timeline"
-            data-lang="en"
-            data-height="600"
-            href="https://twitter.com/NASA?ref_src=twsrc%5Etfw"
-          >
-            Tweets by NASA
-          </a>{' '}
-        </div>
+        <Saved saved={this.props.saved} />
       </div>
     )
   }

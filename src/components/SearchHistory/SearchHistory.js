@@ -10,8 +10,8 @@ const SearchHistory = props => {
     )
   })
   return (
-    <div>
-      <h3>Recent Searches</h3>
+    <div className="history">
+      <h4>Recent Searches:</h4>
       <ul>{searches}</ul>
       <p>
         {props.history.length === 0 ? `Past searches will be saved here.` : ''}

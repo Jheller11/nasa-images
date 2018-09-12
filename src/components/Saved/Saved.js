@@ -53,11 +53,14 @@ class Saved extends Component {
   }
   render() {
     return (
-      <ReactTable
-        data={this.state.saved}
-        defaultPageSize={5}
-        columns={this.state.columns}
-      />
+      <div className="saved">
+        <h4>Saved Images:</h4>
+        <ReactTable
+          data={this.state.saved}
+          defaultPageSize={5}
+          columns={this.state.columns}
+        />
+      </div>
     )
   }
 }

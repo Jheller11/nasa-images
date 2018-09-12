@@ -96,6 +96,26 @@ input {
 #epic {
   max-height: 600px;
 }
+
+/* Saved */
+
+.saved {
+  border: 1px #e5d352 solid;
+  padding: 5px;
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* History */
+
+.history {
+  border: 1px #e5d352 solid;
+  padding: 5px;
+  width: 50%;
+  display: inline-block;
+  float: right;
+}
 /* Color Scheme:
 medium: #537D8D
 light: #BCD2EE
