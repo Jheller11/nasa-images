@@ -24,7 +24,6 @@ class Epic extends Component {
   }
 
   render() {
-    let image = this.state.images[0]
     return (
       <div>
         <img

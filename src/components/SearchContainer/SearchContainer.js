@@ -3,6 +3,8 @@ import Input from '../Input/Input'
 import querystring from 'querystring'
 import axios from 'axios'
 import MediaSelector from '../MediaSelector/MediaSelector'
+import SearchHistory from '../SearchHistory/SearchHistory'
+import Saved from '../Saved/Saved'
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -133,6 +135,8 @@ class SearchContainer extends Component {
             <button onClick={this.constructURL}> Search </button>
           </div>
         </div>
+        <Saved saved={this.props.saved} />
+        <SearchHistory history={this.props.history} />
         <div className="twitter">
           <a
             className="twitter-timeline"

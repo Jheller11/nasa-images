@@ -10,8 +10,6 @@ const Header = () => {
         <Link to="/apod">Astronomy Picture of the Day</Link>
         <Link to="/epic">Earth</Link>
         <Link to="/">Search</Link>
-        <Link to="/history">Search History</Link>
-        <Link to="/saved">Saved Images</Link>
         <Link to="/help">About</Link>
       </nav>
     </header>

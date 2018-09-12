@@ -5,8 +5,6 @@ import SearchContainer from './components/SearchContainer/SearchContainer'
 import ImageResultsContainer from './components/ImageResultsContainer/ImageResultsContainer'
 import Header from './components/Header/Header'
 import APOD from './components/APOD/APOD'
-import SearchHistory from './components/SearchHistory/SearchHistory'
-import Saved from './components/Saved/Saved'
 import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
 import Help from './components/Help/Help'
 import Error from './components/Error/Error'
@@ -69,6 +67,8 @@ class App extends Component {
                   {...props}
                   setResults={this.setResults}
                   saveSearch={this.saveSearch}
+                  history={this.state.history}
+                  saved={this.state.saved}
                 />
               )}
             />
@@ -90,14 +90,6 @@ class App extends Component {
             <Route
               path="/apod"
               render={props => <APOD {...props} saveErr={this.saveErr} />}
-            />
-            <Route
-              path="/history"
-              render={() => <SearchHistory history={this.state.history} />}
-            />
-            <Route
-              path="/saved"
-              render={() => <Saved saved={this.state.saved} />}
             />
             <Route path="/epic" render={() => <Epic />} />
             <Route path="/help" render={() => <Help />} />
