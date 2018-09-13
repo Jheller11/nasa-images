@@ -79,19 +79,23 @@ class Epic extends Component {
           )}/png/${activeImage.image}.png`}
           alt={activeImage.identifier}
           key={activeImage.identifier}
-          className="epicImage"
+          className="epic-image"
         />
       )
     }
 
     return (
-      <div className="epic-container">
-        <div className="epic-left">{slideshow}</div>
-        <div className="epic-right">
-          <EpicController
-            increment={this.increment}
-            decrement={this.decrement}
-          />
+      <div className="epic box-shadow">
+        <h4>EPIC: Earth Plychromatic Imaging Camera</h4>
+        <p />
+        <div className="epic-container">
+          <div className="epic-left">{slideshow}</div>
+          <div className="epic-right">
+            <EpicController
+              increment={this.increment}
+              decrement={this.decrement}
+            />
+          </div>
         </div>
       </div>
     )

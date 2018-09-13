@@ -20,6 +20,10 @@ h4 {
   display: flex;
 }
 
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 /*  Header and Nav */
 header {
   padding: 10px;
@@ -91,7 +95,18 @@ input {
 
 /* Epic */
 
-.epicImage {
+.epic {
+  border: 1px #e5d352 solid;
+  padding: 5px;
+}
+
+.epic-container {
+  display: grid;
+  grid-template-columns: 66% 34%;
+  grid-template-rows: 100%;
+}
+
+.epic-image {
   max-height: 600px;
 }
 

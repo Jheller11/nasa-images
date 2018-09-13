@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header>
+    <header className="box-shadow">
       <nav>
         <Link id="title" to="/">
           NASA Image Finder
