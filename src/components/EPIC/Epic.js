@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EpicController from '../EpicController/EpicController'
 import axios from 'axios'
 
 class Epic extends Component {
@@ -10,8 +11,13 @@ class Epic extends Component {
       active: null,
       loading: true
     }
+
+    this.setActive = this.setActive.bind(this)
+    this.increment = this.increment.bind(this)
+    this.decrement = this.decrement.bind(this)
   }
 
+  // fetch EPIC most recent natural images
   componentDidMount() {
     axios
       .get(this.state.url)
@@ -27,9 +33,37 @@ class Epic extends Component {
       })
   }
 
-  render() {
-    let slideshow, activeImage
+  // allow EpicController component to switch active image
+  setActive(e) {
+    e.preventDefault()
+    let num = e.target.firstChild.value
+    this.setState({
+      active: num
+    })
+  }
 
+  increment(e) {
+    e.preventDefault()
+    this.state.active === 11
+      ? this.setState({ active: 0 })
+      : this.setState({
+          active: this.state.active + 1
+        })
+  }
+
+  decrement(e) {
+    e.preventDefault()
+    this.state.active === 0
+      ? this.setState({ active: 11 })
+      : this.setState({
+          active: this.state.active - 1
+        })
+  }
+
+  render() {
+    let slideshow,
+      activeImage,
+      active = this.state.active
     if (this.state.loading) {
       slideshow = <div>Slideshow loading...</div>
     } else {
@@ -50,7 +84,17 @@ class Epic extends Component {
       )
     }
 
-    return <div>{slideshow}</div>
+    return (
+      <div className="epic-container">
+        <div className="epic-left">{slideshow}</div>
+        <div className="epic-right">
+          <EpicController
+            increment={this.increment}
+            decrement={this.decrement}
+          />
+        </div>
+      </div>
+    )
   }
 }
 
