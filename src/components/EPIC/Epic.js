@@ -6,7 +6,7 @@ class Epic extends Component {
     super()
     this.state = {
       images: [],
-      url: 'https://api.nasa.gov/EPIC/api/natural/images?api_key=DEMO_KEY'
+      url: 'https://epic.gsfc.nasa.gov/api/natural '
     }
   }
 
@@ -24,15 +24,26 @@ class Epic extends Component {
   }
 
   render() {
-    return (
-      <div>
+    let images = []
+    this.state.images.forEach(image => {
+      let date = {
+        year: image.date.slice(0, 4),
+        month: image.date.slice(5, 7),
+        day: image.date.slice(8, 10)
+      }
+      let id = image.image
+      images.push(
         <img
-          id="epic"
-          src="https://epic.gsfc.nasa.gov/archive/natural/2015/10/31/png/epic_1b_20151031074844.png"
-          alt="epic"
+          src={`https://epic.gsfc.nasa.gov/archive/natural/${date.year}/${
+            date.month
+          }/${date.day}/png/${id}.png`}
+          alt={image.identifier}
+          key={image.identifier}
+          className="epic"
         />
-      </div>
-    )
+      )
+    })
+    return <div>{images}</div>
   }
 }
 

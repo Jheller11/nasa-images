@@ -75,7 +75,6 @@ input {
 .twitter {
   width: 45%;
   float: right;
-  display: inline-block;
 }
 /* Results */
 
@@ -92,8 +91,8 @@ input {
 
 /* Epic */
 
-#epic {
-  max-height: 600px;
+.epic {
+  max-height: 200px;
 }
 
 /* Saved */
