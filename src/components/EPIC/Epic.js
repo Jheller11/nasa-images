@@ -6,7 +6,9 @@ class Epic extends Component {
     super()
     this.state = {
       images: [],
-      url: 'https://epic.gsfc.nasa.gov/api/natural '
+      url: 'https://epic.gsfc.nasa.gov/api/natural ',
+      active: null,
+      loading: true
     }
   }
 
@@ -15,7 +17,9 @@ class Epic extends Component {
       .get(this.state.url)
       .then(res => {
         this.setState({
-          images: res.data
+          images: res.data,
+          loading: false,
+          active: 0
         })
       })
       .catch(err => {
@@ -24,26 +28,29 @@ class Epic extends Component {
   }
 
   render() {
-    let images = []
-    this.state.images.forEach(image => {
-      let date = {
-        year: image.date.slice(0, 4),
-        month: image.date.slice(5, 7),
-        day: image.date.slice(8, 10)
-      }
-      let id = image.image
-      images.push(
+    let slideshow, activeImage
+
+    if (this.state.loading) {
+      slideshow = <div>Slideshow loading...</div>
+    } else {
+      activeImage = this.state.images[this.state.active]
+      slideshow = (
         <img
-          src={`https://epic.gsfc.nasa.gov/archive/natural/${date.year}/${
-            date.month
-          }/${date.day}/png/${id}.png`}
-          alt={image.identifier}
-          key={image.identifier}
-          className="epic"
+          src={`https://epic.gsfc.nasa.gov/archive/natural/${activeImage.date.slice(
+            0,
+            4
+          )}/${activeImage.date.slice(5, 7)}/${activeImage.date.slice(
+            8,
+            10
+          )}/png/${activeImage.image}.png`}
+          alt={activeImage.identifier}
+          key={activeImage.identifier}
+          className="epicImage"
         />
       )
-    })
-    return <div>{images}</div>
+    }
+
+    return <div>{slideshow}</div>
   }
 }
 

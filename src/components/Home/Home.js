@@ -3,7 +3,9 @@ import React from 'react'
 const Home = () => {
   return (
     <div className="home">
-      {' '}
+      <div className="home-info">
+        <h4>Welcome</h4>
+      </div>
       <div className="twitter">
         <a
           className="twitter-timeline"
