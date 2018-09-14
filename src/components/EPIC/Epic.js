@@ -63,7 +63,7 @@ class Epic extends Component {
   render() {
     let slideshow,
       activeImage,
-      images = []
+      data = ''
     if (this.state.loading) {
       slideshow = <div>Slideshow loading...</div>
     } else {
@@ -82,7 +82,9 @@ class Epic extends Component {
           className="epic-image"
         />
       )
+      data = <p>Date: {activeImage.date.slice(0, 10)}</p>
     }
+    console.log(this.state.images[this.state.active])
 
     return (
       <div className="epic">
@@ -98,6 +100,7 @@ class Epic extends Component {
               increment={this.increment}
               decrement={this.decrement}
             />
+            <div className="data">{data}</div>
           </div>
         </div>
       </div>

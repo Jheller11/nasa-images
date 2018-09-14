@@ -21,7 +21,7 @@ h4 {
 }
 
 .box-shadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.09);
 }
 
 /*  Header and Nav */
@@ -32,7 +32,6 @@ header {
   background: white;
   top: 0;
   left: 0;
-  border-bottom: 1px groove #e5d352;
 }
 
 nav > a {
@@ -48,6 +47,14 @@ nav > #title {
 
 nav > a:hover {
   background: #bcd2ee;
+}
+
+/*  Home/Start Screen */
+
+.home {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 55% 45%;
 }
 
 /* Search Form */
@@ -76,10 +83,6 @@ input {
 
 /* Twitter */
 
-.twitter {
-  width: 45%;
-  float: right;
-}
 /* Results */
 
 .preview {
@@ -100,6 +103,7 @@ input {
   padding: 5px;
   background: black;
   color: #47e3ff;
+  min-height: 700px;
 }
 
 .epic-container {
@@ -110,6 +114,16 @@ input {
 
 .epic-image {
   max-height: 600px;
+}
+
+.epic-button {
+  background: none;
+  color: inherit;
+  border: #47e3ff 1px solid;
+  padding: 3px;
+  font: inherit;
+  cursor: pointer;
+  margin: 4px;
 }
 
 /* Saved */

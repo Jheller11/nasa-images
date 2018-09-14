@@ -9,9 +9,15 @@ const Header = () => {
           NASA Image Finder
         </Link>
         <span>|</span>
-        <Link to="/apod">Astronomy Picture of the Day</Link>
-        <Link to="/epic">Earth (EPIC)</Link>
-        <Link to="/search">Image Search</Link>
+        <Link to="/apod">
+          <i className="fa fa-camera" /> Astronomy Picture of the Day
+        </Link>
+        <Link to="/epic">
+          <i className="fa fa-globe" /> Earth (EPIC)
+        </Link>
+        <Link to="/search">
+          <i className="fa fa-search" /> Image Search
+        </Link>
         <Link to="/help">About</Link>
       </nav>
     </header>
