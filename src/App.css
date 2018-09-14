@@ -1,7 +1,7 @@
 /* Body */
 
 main {
-  padding-top: 40px;
+  padding-top: 50px;
   color: #221d23;
 }
 
@@ -98,6 +98,8 @@ input {
 .epic {
   border: 1px #e5d352 solid;
   padding: 5px;
+  background: black;
+  color: #47e3ff;
 }
 
 .epic-container {

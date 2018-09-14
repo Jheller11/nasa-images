@@ -63,7 +63,7 @@ class Epic extends Component {
   render() {
     let slideshow,
       activeImage,
-      active = this.state.active
+      images = []
     if (this.state.loading) {
       slideshow = <div>Slideshow loading...</div>
     } else {
@@ -85,12 +85,15 @@ class Epic extends Component {
     }
 
     return (
-      <div className="epic box-shadow">
+      <div className="epic">
         <h4>EPIC: Earth Plychromatic Imaging Camera</h4>
         <p />
         <div className="epic-container">
           <div className="epic-left">{slideshow}</div>
           <div className="epic-right">
+            <p>
+              Image {this.state.active + 1} of {this.state.images.length}
+            </p>
             <EpicController
               increment={this.increment}
               decrement={this.decrement}
