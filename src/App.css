@@ -182,11 +182,12 @@ input {
 
 footer {
   background: #ac393180;
-  height: 100px;
+  height: 60px;
   margin-top: 10px;
   color: whitesmoke;
   padding: 20px;
   border-radius: 10px;
+  font-size: 75%;
 }
 
 .footer-icons {

@@ -7,20 +7,22 @@ class Epic extends Component {
     super()
     this.state = {
       images: [],
-      url: 'https://epic.gsfc.nasa.gov/api/natural ',
+      url: 'https://epic.gsfc.nasa.gov/api/',
       active: null,
-      loading: true
+      loading: true,
+      type: 'natural'
     }
 
-    this.setActive = this.setActive.bind(this)
+    this.setNatural = this.setNatural.bind(this)
     this.increment = this.increment.bind(this)
     this.decrement = this.decrement.bind(this)
+    this.setEnhanced = this.setEnhanced.bind(this)
   }
 
   // fetch EPIC most recent natural images
   componentDidMount() {
     axios
-      .get(this.state.url)
+      .get(this.state.url + this.state.type)
       .then(res => {
         this.setState({
           images: res.data,
@@ -33,15 +35,7 @@ class Epic extends Component {
       })
   }
 
-  // allow EpicController component to switch active image
-  setActive(e) {
-    e.preventDefault()
-    let num = e.target.firstChild.value
-    this.setState({
-      active: num
-    })
-  }
-
+  //  next image
   increment(e) {
     e.preventDefault()
     this.state.active === 11
@@ -50,7 +44,7 @@ class Epic extends Component {
           active: this.state.active + 1
         })
   }
-
+  //  previous image
   decrement(e) {
     e.preventDefault()
     this.state.active === 0
@@ -58,6 +52,21 @@ class Epic extends Component {
       : this.setState({
           active: this.state.active - 1
         })
+  }
+
+  // enhanced
+  setEnhanced() {
+    this.setState({
+      type: 'enhanced'
+    })
+  }
+
+  // natural
+
+  setNatural() {
+    this.setState({
+      type: 'natural'
+    })
   }
 
   render() {
@@ -70,13 +79,12 @@ class Epic extends Component {
       activeImage = this.state.images[this.state.active]
       slideshow = (
         <img
-          src={`https://epic.gsfc.nasa.gov/archive/natural/${activeImage.date.slice(
-            0,
-            4
-          )}/${activeImage.date.slice(5, 7)}/${activeImage.date.slice(
-            8,
-            10
-          )}/png/${activeImage.image}.png`}
+          src={`https://epic.gsfc.nasa.gov/archive/${
+            this.state.type
+          }/${activeImage.date.slice(0, 4)}/${activeImage.date.slice(
+            5,
+            7
+          )}/${activeImage.date.slice(8, 10)}/png/${activeImage.image}.png`}
           alt={activeImage.identifier}
           key={activeImage.identifier}
           className="epic-image"
@@ -99,6 +107,8 @@ class Epic extends Component {
             <EpicController
               increment={this.increment}
               decrement={this.decrement}
+              setNatural={this.setNatural}
+              setEnhanced={this.setEnhanced}
             />
             <div className="data">{data}</div>
           </div>

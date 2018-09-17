@@ -2,22 +2,22 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="flex">
       <p>Created by Jeff Heller</p>
       <ul className="flex footer-icons">
         <li>
-          <a href="">
-            <span className="fa fa-github-square" />
+          <a href="https://github.com/Jheller11">
+            <span className="fa fa-github-square fa-lg" />
           </a>
         </li>
         <li>
-          <a href="">
-            <span className="fa fa-envelope" />
+          <a href="mailto:heller.jeffrey@gmail.com">
+            <span className="fa fa-envelope fa-lg" />
           </a>
         </li>
         <li>
-          <a href="">
-            <span className="fa fa-linkedin" />
+          <a href="https://www.linkedin.com/in/jeffreyaheller/">
+            <span className="fa fa-linkedin fa-lg" />
           </a>
         </li>
       </ul>
