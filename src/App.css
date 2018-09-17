@@ -149,6 +149,17 @@ input {
   margin: 4px;
 }
 
+.epic-button:hover {
+  color: #4dff47;
+  border: #4dff47 1px solid;
+}
+
+.controls {
+  border: 1px solid #47e3ff;
+  padding: 5px;
+  width: 80%;
+}
+
 /* Saved */
 
 .saved {

@@ -17,10 +17,16 @@ class Epic extends Component {
     this.increment = this.increment.bind(this)
     this.decrement = this.decrement.bind(this)
     this.setEnhanced = this.setEnhanced.bind(this)
+    this.fetch = this.fetch.bind(this)
   }
 
   // fetch EPIC most recent natural images
   componentDidMount() {
+    this.fetch()
+  }
+
+  // fetch new images
+  fetch() {
     axios
       .get(this.state.url + this.state.type)
       .then(res => {
@@ -57,16 +63,21 @@ class Epic extends Component {
   // enhanced
   setEnhanced() {
     this.setState({
-      type: 'enhanced'
+      type: 'enhanced',
+      loading: true,
+      images: []
     })
+    this.fetch()
   }
 
   // natural
-
   setNatural() {
     this.setState({
-      type: 'natural'
+      type: 'natural',
+      loading: true,
+      images: []
     })
+    this.fetch()
   }
 
   render() {
@@ -101,15 +112,18 @@ class Epic extends Component {
         <div className="epic-container">
           <div className="epic-left">{slideshow}</div>
           <div className="epic-right">
-            <p>
-              Image {this.state.active + 1} of {this.state.images.length}
-            </p>
-            <EpicController
-              increment={this.increment}
-              decrement={this.decrement}
-              setNatural={this.setNatural}
-              setEnhanced={this.setEnhanced}
-            />
+            <div className="controls">
+              <h3>Controls</h3>
+              <p>
+                Image {this.state.active + 1} of {this.state.images.length}
+              </p>
+              <EpicController
+                increment={this.increment}
+                decrement={this.decrement}
+                setNatural={this.setNatural}
+                setEnhanced={this.setEnhanced}
+              />
+            </div>
             <div className="data">{data}</div>
           </div>
         </div>
