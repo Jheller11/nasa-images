@@ -66,6 +66,15 @@ nav > a:hover {
   padding: 20px;
 }
 
+.home-info > ul > li > a {
+  text-decoration: none;
+  color: #ac3931;
+}
+
+.home-info > ul > li > a:hover {
+  text-decoration: underline;
+}
+
 /* Search Form */
 
 .search-container {
@@ -168,6 +177,26 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+/* Footer */
+
+footer {
+  background: #ac393180;
+  height: 100px;
+  margin-top: 10px;
+  color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.footer-icons {
+  list-style: none;
+}
+
+.footer-icons > * {
+  margin: 3px;
+}
+
 /* Color Scheme:
 medium: #537D8D
 light: #BCD2EE

@@ -10,6 +10,7 @@ import Help from './components/Help/Help'
 import Error from './components/Error/Error'
 import Epic from './components/EPIC/Epic'
 import Home from './components/Home/Home'
+import Footer from './components/Footer/Footer'
 
 class App extends Component {
   constructor() {
@@ -101,6 +102,7 @@ class App extends Component {
             <Route path="/" render={() => <Home />} />
           </Switch>
         </main>
+        <Footer />
       </div>
     )
   }
