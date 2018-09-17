@@ -18,7 +18,14 @@ const Header = () => {
         <Link to="/search">
           <i className="fa fa-search" /> Image Search
         </Link>
-        <Link to="/help">About</Link>
+      </nav>
+      <nav className="header-right">
+        <Link to="/">
+          <span className="fa fa-home" />
+        </Link>
+        <Link to="/help">
+          <span className="fa fa-question" />
+        </Link>
       </nav>
     </header>
   )

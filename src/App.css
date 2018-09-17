@@ -32,6 +32,8 @@ header {
   background: white;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav > a {
@@ -49,6 +51,9 @@ nav > a:hover {
   background: #bcd2ee;
 }
 
+.header-right {
+  margin-right: 20px;
+}
 /*  Home/Start Screen */
 
 .home {
@@ -143,6 +148,16 @@ input {
   padding: 5px;
   width: 50%;
   float: right;
+}
+
+/* Loading */
+
+.loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* Color Scheme:
 medium: #537D8D
