@@ -62,6 +62,10 @@ nav > a:hover {
   grid-template-columns: 55% 45%;
 }
 
+.home-info {
+  padding: 20px;
+}
+
 /* Search Form */
 
 .search-container {
@@ -87,6 +91,11 @@ input {
 }
 
 /* Twitter */
+
+.twitter {
+  border: 1px solid #537d8d;
+  padding: 5px;
+}
 
 /* Results */
 
