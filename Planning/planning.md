@@ -12,6 +12,8 @@
 
 4.  refactor/comment all
 
+5.  create new "about" component - DRY - future adding of new sources
+
 ## Ideas
 
 ## New Features

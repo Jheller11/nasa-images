@@ -17,11 +17,11 @@ const Help = () => {
         .
       </p>
       <h3>API's:</h3>
-      <ol>
-        <li>
+      <ul>
+        <li className="about-cards">
           <h5>Astronomy Picture of the Day</h5>
           <p>
-            Link:{' '}
+            Info:{' '}
             <a
               href="https://api.nasa.gov/api.html#apod"
               rel="noopener noreferrer"
@@ -31,10 +31,10 @@ const Help = () => {
             </a>
           </p>
         </li>
-        <li>
+        <li className="about-cards">
           <h5>EPIC (Earth Polychromatic Imaging Camera)</h5>
           <p>
-            Link:{' '}
+            Info:{' '}
             <a
               href="https://epic.gsfc.nasa.gov/about/api"
               rel="noopener noreferrer"
@@ -44,16 +44,16 @@ const Help = () => {
             </a>
           </p>
         </li>
-        <li>
+        <li className="about-cards">
           <h5>NASA Image and Video Library</h5>
           <p>
-            Link:{' '}
+            Info:{' '}
             <a href="https://api.nasa.gov/api.html#Images">
               https://api.nasa.gov/api.html#Images
             </a>
           </p>
         </li>
-      </ol>
+      </ul>
     </div>
   )
 }

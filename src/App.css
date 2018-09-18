@@ -209,6 +209,24 @@ footer {
   margin: 3px;
 }
 
+/* About */
+
+.about-cards {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.09);
+  border: 1px solid #ac3931;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.about-cards > p > a {
+  text-decoration: none;
+  color: #ac3931;
+}
+
+.about-cards > p > a:hover {
+  text-decoration: underline;
+}
+
 /* Color Scheme:
 medium: #537D8D
 light: #BCD2EE
