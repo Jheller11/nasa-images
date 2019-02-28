@@ -1,0 +1,16 @@
+.homeContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.homeText {
+  padding-right: 2em;
+}
+
+.homeListItem {
+  list-style: none;
+}
+
+.homeListItem > a {
+  color: #e28413;
+}

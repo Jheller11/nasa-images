@@ -3,3 +3,13 @@ body {
   background-color: #1e2327;
   color: #ccdad1;
 }
+
+a {
+  color: #ccdad1;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e28413;
+  text-decoration: underline;
+}

@@ -23,6 +23,7 @@
 
 .title:hover {
   color: #e28413;
+  text-decoration: none;
 }
 
 .nav > a {
