@@ -31,3 +31,16 @@
 .galleryList > li {
   list-style: none;
 }
+
+.big {
+  grid-column: span 6;
+  grid-row: span 4;
+}
+
+/* css for image gallery credit Juan Martin Garcia
+
+https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/   #2
+
+note: need to reset list style and 'figure' default margin/padding
+
+*/

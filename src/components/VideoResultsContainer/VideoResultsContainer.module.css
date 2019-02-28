@@ -1,0 +1,22 @@
+.videoList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.videoList > li {
+  width: 45%;
+  min-width: 200px;
+  border: 1px solid gray;
+  padding: 1em;
+}
+
+.videoList > li:hover {
+  border: 1px solid #e28413;
+}
+
+.title {
+  color: #e28413;
+}

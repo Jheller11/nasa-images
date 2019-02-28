@@ -5,15 +5,17 @@ const ImageResultsContainer = props => {
   return (
     <div className={styles.gallery}>
       <ul className={styles.galleryList}>
-        {props.results.map((res, i) => {
-          return (
-            <li key={i}>
-              <figure>
-                <img src={res.links[0].href} alt={res.data[0].title} />
-              </figure>
-            </li>
-          )
-        })}
+        {props.results.length > 0
+          ? props.results.map((res, i) => {
+              return (
+                <li key={i}>
+                  <figure>
+                    <img src={res.links[0].href} alt={res.data[0].title} />
+                  </figure>
+                </li>
+              )
+            })
+          : 'No results found. Please try again.'}
       </ul>
     </div>
   )
