@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <header className="box-shadow">
+    <header className={styles.header}>
+      <Link to="/">NASA Image Finder</Link>
+      <span>|</span>
       <nav>
-        <Link id="title" to="/">
-          NASA Image Finder
-        </Link>
-        <span>|</span>
         <Link to="/apod">
           <i className="fa fa-camera" /> Astronomy Picture of the Day
         </Link>
@@ -17,11 +16,6 @@ const Header = () => {
         </Link>
         <Link to="/search">
           <i className="fa fa-search" /> Image Search
-        </Link>
-      </nav>
-      <nav className="header-right">
-        <Link to="/">
-          <span className="fa fa-home" />
         </Link>
         <Link to="/help">
           <span className="fa fa-question" />
