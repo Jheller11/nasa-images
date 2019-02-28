@@ -18,12 +18,12 @@ class App extends Component {
     this.state = {
       history: [],
       saved: [],
-      media_type: ''
+      media_type: '',
+      results: []
     }
 
     this.setResults = this.setResults.bind(this)
     this.saveSearch = this.saveSearch.bind(this)
-    this.saveImage = this.saveImage.bind(this)
     this.saveErr = this.saveErr.bind(this)
   }
 
@@ -39,14 +39,6 @@ class App extends Component {
     searches.push(search)
     this.setState({
       history: searches
-    })
-  }
-
-  saveImage(image) {
-    let images = this.state.saved
-    images.push(image)
-    this.setState({
-      saved: images
     })
   }
 
@@ -77,10 +69,7 @@ class App extends Component {
             <Route
               path="/results/images"
               render={() => (
-                <ImageResultsContainer
-                  results={this.state.results}
-                  saveImage={this.saveImage}
-                />
+                <ImageResultsContainer results={this.state.results} />
               )}
             />
             <Route

@@ -1,95 +1,51 @@
-import React, { Component } from 'react'
-import ReactTable from 'react-table'
-import 'react-table/react-table.css'
+import React from 'react'
+import styles from './ImageResultsContainer.module.css'
 
-class ImageResultsContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      results: this.props.results,
-      columns: [
-        {
-          id: 'title',
-          Header: 'Title',
-          accessor: d => d.data[0].title
-        },
-        {
-          id: 'creator',
-          Header: 'Creator',
-          accessor: d => d.data[0].center
-        },
-        {
-          id: 'keywords',
-          Header: 'Keywords',
-          accessor: d => d.data[0].keywords,
-          Cell: props => (
-            <ul>
-              <li>{props.value[0]}</li>
-              <li>{props.value[1]}</li>
-              <li>{props.value[2]}</li>
-            </ul>
+const ImageResultsContainer = props => {
+  return (
+    <div className={styles.gallery}>
+      <ul className={styles.galleryList}>
+        {props.results.map((res, i) => {
+          return (
+            <li key={i}>
+              <figure>
+                <img src={res.links[0].href} alt={res.data[0].title} />
+              </figure>
+            </li>
           )
-        },
-        {
-          id: 'image',
-          Header: 'Preview Image',
-          accessor: d => d.links[0].href,
-          Cell: props => (
-            <div onClick={this.handleView}>
-              <img className="preview" src={props.value} alt="search result" />
-            </div>
-          )
-        },
-        {
-          id: 'collectionUrl',
-          Header: 'Link to NASA Collection',
-          accessor: d => d.href,
-          Cell: props => (
-            <a href={props.value} target="_blank" rel="noopener noreferrer">
-              Collection
-            </a>
-          )
-        },
-        {
-          id: 'saveButton',
-          Header: 'Action',
-          accessor: d => d.href,
-          Cell: props => (
-            <button onClick={this.handleSave} name={props.value}>
-              Save
-            </button>
-          )
-        }
-      ]
-    }
-    this.handleSave = this.handleSave.bind(this)
-    this.handleView = this.handleView.bind(this)
-  }
-
-  handleSave(e) {
-    let target = this.state.results.filter(result => {
-      return result.href === e.target.name
-    })
-    this.props.saveImage(target[0])
-  }
-
-  handleView(e) {}
-
-  render() {
-    return (
-      <div>
-        <p className="description">
-          *Click on a preview image to view full size.
-        </p>
-        <ReactTable
-          data={this.state.results}
-          defaultPageSize={5}
-          columns={this.state.columns}
-          className="-striped -highlight"
-        />
-      </div>
-    )
-  }
+        })}
+      </ul>
+    </div>
+  )
 }
 
 export default ImageResultsContainer
+
+// data: Array(1)
+// 0:
+// center: "JPL"
+// date_created: "1999-03-13T14:54:19Z"
+// description: "Jupiter Plume"
+// description_508: "Jupiter Plume"
+// keywords: Array(2)
+// 0: "Jupiter"
+// 1: "Voyager"
+// length: 2
+// __proto__: Array(0)
+// media_type: "image"
+// nasa_id: "PIA01518"
+// secondary_creator: "NASA/JPL"
+// title: "Jupiter Plume"
+// __proto__: Object
+// length: 1
+// __proto__: Array(0)
+// href: "https://images-assets.nasa.gov/image/PIA01518/collection.json"
+// links: Array(1)
+// 0:
+// href: "https://images-assets.nasa.gov/image/PIA01518/PIA01518~thumb.jpg"
+// rel: "preview"
+// render: "image"
+// __proto__: Object
+// length: 1
+// __proto__: Array(0)
+// __proto__: Object

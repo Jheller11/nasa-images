@@ -1,0 +1,33 @@
+.galleryList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-rows: repeat(9, 200px);
+  grid-gap: 1rem;
+  grid-auto-flow: dense;
+}
+
+.galleryList > li:nth-child(4n) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galleryList > li:nth-child(8n) {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+
+.galleryList > li > figure {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.galleryList > li > figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryList > li {
+  list-style: none;
+}
