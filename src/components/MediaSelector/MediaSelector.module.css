@@ -1,0 +1,11 @@
+.mediaSelector {
+  padding-top: 0.5em;
+  display: grid;
+  grid-template-columns: 10% 10%;
+}
+
+.select {
+  background-color: #1e2327;
+  color: #e28413;
+  font-size: 80%;
+}

@@ -3,8 +3,7 @@ import Input from '../Input/Input'
 import querystring from 'querystring'
 import axios from 'axios'
 import MediaSelector from '../MediaSelector/MediaSelector'
-import SearchHistory from '../SearchHistory/SearchHistory'
-import Saved from '../Saved/Saved'
+import styles from './SearchContainer.module.css'
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -116,25 +115,31 @@ class SearchContainer extends Component {
       )
     }
     return (
-      <div className="">
-        <div className="search-container">
-          <h4>New Search:</h4>
-          <p>
-            <button onClick={() => this.setState({ simple: true })}>
-              Simple
-            </button>
-            <button onClick={() => this.setState({ simple: false })}>
-              Advanced
-            </button>
-          </p>
-          <MediaSelector handleChange={this.handleChange} />
-          <div>{inputs}</div>
-          <div className="center">
-            <button onClick={this.constructURL}> Search </button>
-          </div>
+      <div className="search-container">
+        <h4>New Search:</h4>
+        <div>
+          Mode:
+          <button
+            className={styles.button}
+            onClick={() => this.setState({ simple: true })}
+          >
+            Simple
+          </button>
+          <button
+            className={styles.button}
+            onClick={() => this.setState({ simple: false })}
+          >
+            Advanced
+          </button>
         </div>
-        <SearchHistory searchHistory={this.props.searchHistory} />
-        <Saved saved={this.props.saved} />
+        <div className={styles.status}>
+          {this.state.simple ? 'Simple Search' : 'Advanced Search'}
+        </div>
+        <MediaSelector handleChange={this.handleChange} />
+        <div>{inputs}</div>
+        <button className={styles.searchButton} onClick={this.constructURL}>
+          Search
+        </button>
       </div>
     )
   }

@@ -13,3 +13,7 @@ a:hover {
   color: #e28413;
   text-decoration: underline;
 }
+
+main {
+  min-height: 300px;
+}

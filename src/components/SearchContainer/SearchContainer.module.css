@@ -1,0 +1,37 @@
+.button {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  color: #e28413;
+  border: 1px solid #ccdad1;
+  background-color: #1e2327;
+  font-size: 100%;
+  margin: 0 1em;
+}
+
+.button:hover {
+  color: #1e2327;
+  border: 1px solid #e28413;
+  background-color: #e28413;
+}
+
+.status {
+  padding-top: 2em;
+  color: #e28413;
+}
+
+.searchButton {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  color: #e28413;
+  border: 1px solid #ccdad1;
+  background-color: #1e2327;
+  font-size: 110%;
+  margin: 2em 1em 0 3em;
+  padding: 5px;
+}
+
+.searchButton:hover {
+  color: #1e2327;
+  border: 1px solid #e28413;
+  background-color: #e28413;
+}
