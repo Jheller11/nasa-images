@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import LoadingScreen from '../LoadingScreen/LoadingScreen'
+import styles from './APOD.module.css'
 
 class APOD extends Component {
   constructor(props) {
@@ -14,8 +15,6 @@ class APOD extends Component {
       date: '',
       loading: true
     }
-
-    this.timer = this.timer.bind(this)
   }
 
   componentDidMount() {
@@ -27,9 +26,9 @@ class APOD extends Component {
           title: res.data.title,
           explanation: res.data.explanation,
           date: res.data.date,
-          mediaType: res.data.media_type
+          mediaType: res.data.media_type,
+          loading: false
         })
-        this.timer()
       })
       .catch(err => {
         this.props.history.push('/error')
@@ -37,18 +36,12 @@ class APOD extends Component {
       })
   }
 
-  timer() {
-    setInterval(() => {
-      this.setState({
-        loading: false
-      })
-    }, 3000)
-  }
-
   render() {
     let media
     if (this.state.mediaType === 'image') {
-      media = <img className="apod" src={this.state.src} alt={'APOD'} />
+      media = (
+        <img className={styles.apodImage} src={this.state.src} alt={'APOD'} />
+      )
     } else if (this.state.mediaType === 'video') {
       media = (
         <iframe
@@ -63,11 +56,11 @@ class APOD extends Component {
       <LoadingScreen />
     ) : (
       <div>
-        <h3>
+        <h1 className={styles.title}>
           {this.state.title} ({this.state.date})
-        </h3>
+        </h1>
         <div>{media}</div>
-        <p>Description: {this.state.explanation}</p>
+        <p className={styles.description}>{this.state.explanation}</p>
       </div>
     )
 

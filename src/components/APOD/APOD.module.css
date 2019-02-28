@@ -1,0 +1,14 @@
+.title {
+  text-align: center;
+}
+
+.apodImage {
+  max-height: 500px;
+  display: block;
+  margin: auto;
+}
+
+.description {
+  text-align: center;
+  padding: 1em;
+}
