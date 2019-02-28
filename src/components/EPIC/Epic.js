@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EpicController from '../EpicController/EpicController'
 import axios from 'axios'
+import styles from './Epic.module.css'
 
 class Epic extends Component {
   constructor() {
@@ -98,20 +99,19 @@ class Epic extends Component {
           )}/${activeImage.date.slice(8, 10)}/png/${activeImage.image}.png`}
           alt={activeImage.identifier}
           key={activeImage.identifier}
-          className="epic-image"
+          className={styles.image}
         />
       )
       data = <p>Date: {activeImage.date.slice(0, 10)}</p>
     }
-    console.log(this.state.images[this.state.active])
 
     return (
-      <div className="epic">
+      <div>
         <h4>EPIC: Earth Plychromatic Imaging Camera</h4>
         <p />
-        <div className="epic-container">
-          <div className="epic-left">{slideshow}</div>
-          <div className="epic-right">
+        <div>
+          <div>{slideshow}</div>
+          <div>
             <div className="controls">
               <h3>Controls</h3>
               <p>
