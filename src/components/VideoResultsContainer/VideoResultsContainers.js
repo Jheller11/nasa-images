@@ -37,7 +37,7 @@ class VideoResultsContainer extends Component {
           accessor: d => d.href,
           Cell: props => (
             <p>
-              <a href={props.value} target="_blank">
+              <a href={props.value} target="_blank" rel="noopener noreferrer">
                 View
               </a>
             </p>

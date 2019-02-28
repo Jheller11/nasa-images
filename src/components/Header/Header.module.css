@@ -1,4 +1,37 @@
 .header {
+  /* title on left and navbar on right */
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.nav {
+  /* navbar fills 50% of header and flex items to maintain spacing */
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  height: inherit;
+  line-height: 28px;
+}
+
+.title {
+  /* style for link to home with site title */
+  font-size: 150%;
+  text-decoration: none;
+  color: #ccdad1;
+}
+
+.title:hover {
+  color: #e28413;
+}
+
+.nav > a {
+  text-decoration: none;
+  color: #ccdad1;
+  border-bottom: 1px solid transparent;
+  padding: 2px;
+}
+
+.nav > a:hover {
+  border-bottom: 1px solid #e28413;
 }

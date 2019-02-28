@@ -45,7 +45,7 @@ class ImageResultsContainer extends Component {
           Header: 'Link to NASA Collection',
           accessor: d => d.href,
           Cell: props => (
-            <a href={props.value} target="_blank">
+            <a href={props.value} target="_blank" rel="noopener noreferrer">
               Collection
             </a>
           )
