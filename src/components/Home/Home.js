@@ -43,7 +43,15 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.extras}>
-        <div className={styles.info} />
+        <div className={styles.info}>
+          <p>
+            Use the Image and Video search tool to preview images from NASA's
+            available resources. Click on any image or video preview to access
+            NASA's full collection which includes data (source of image,
+            keywords, etc.) and multiple size/quality options for the
+            photo/video.
+          </p>
+        </div>
         <div className={styles.twitterContainer}>
           <a
             className="twitter-timeline"

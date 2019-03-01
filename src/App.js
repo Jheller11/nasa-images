@@ -11,6 +11,7 @@ import Error from './components/Error/Error'
 import Epic from './components/EPIC/Epic'
 import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
+import ResultViewer from './components/ResultViewer/ResultViewer'
 
 class App extends Component {
   constructor() {
@@ -87,6 +88,12 @@ class App extends Component {
             <Route
               path="/error"
               render={() => <Error error={this.state.error} />}
+            />
+            <Route
+              path="/viewer/:id"
+              render={props => (
+                <ResultViewer {...props} results={this.state.results} />
+              )}
             />
             <Route path="/" render={() => <Home />} />
           </Switch>
