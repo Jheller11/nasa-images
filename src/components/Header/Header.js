@@ -16,7 +16,7 @@ const Header = () => {
           <i className="fa fa-globe" /> Earth (EPIC)
         </Link>
         <Link to="/search">
-          <i className="fa fa-search" /> Image Search
+          <i className="fa fa-search" /> Images & Videos
         </Link>
         <Link to="/help">
           <span className="fa fa-question" />

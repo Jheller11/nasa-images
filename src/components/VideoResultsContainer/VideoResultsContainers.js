@@ -5,7 +5,8 @@ const VideoResultsContainer = props => {
   return (
     <div>
       <small>
-        Click on a result to view media collection from NASA (external link).
+        {props.results.length} results. Click on a result to view media
+        collection from NASA (external link).
       </small>
       <ul className={styles.videoList}>
         {props.results.length > 0

@@ -1,22 +1,35 @@
-.homeContainer {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  font-size: 120%;
-  font-weight: 300;
+.hero {
+  background: url('https://images-assets.nasa.gov/image/PIA18165/PIA18165~large.jpg')
+    no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 80vh;
+  width: 100%;
+  z-index: 9;
+  margin-bottom: -10em;
 }
 
-.homeText {
-  padding-right: 2em;
+.title {
+  position: relative;
+  top: 30px;
+  left: 30px;
+  font-size: 50px;
+  font-weight: 100;
+}
+.optionsHeader {
+  text-align: center;
+  color: #ccdad1;
+}
+.options {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.homeListItem {
-  list-style: none;
-}
-
-.homeListItem > a {
-  color: #a3d9ff;
-}
-
-.homeListItem > a:hover {
-  color: #e28413;
+.option {
+  text-align: center;
+  background-color: #1e2327cc;
+  padding: 1em;
+  width: 30%;
 }

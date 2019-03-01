@@ -17,7 +17,7 @@ const ImageResultsContainer = props => {
                     <a
                       href={res.href}
                       target="_blank"
-                      rel="noopener noreferred"
+                      rel="noopener noreferrer"
                     >
                       <img src={res.links[0].href} alt={res.data[0].title} />
                     </a>
