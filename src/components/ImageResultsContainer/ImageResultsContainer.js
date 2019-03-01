@@ -4,13 +4,23 @@ import styles from './ImageResultsContainer.module.css'
 const ImageResultsContainer = props => {
   return (
     <div className={styles.gallery}>
+      <small>
+        {props.results.length} results. Click on a result to view media
+        collection from NASA (external link).
+      </small>
       <ul className={styles.galleryList}>
         {props.results.length > 0
           ? props.results.map((res, i) => {
               return (
                 <li key={i}>
                   <figure>
-                    <img src={res.links[0].href} alt={res.data[0].title} />
+                    <a
+                      href={res.href}
+                      target="_blank"
+                      rel="noopener noreferred"
+                    >
+                      <img src={res.links[0].href} alt={res.data[0].title} />
+                    </a>
                   </figure>
                 </li>
               )

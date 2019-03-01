@@ -18,7 +18,7 @@
   /* style for link to home with site title */
   font-size: 150%;
   text-decoration: none;
-  color: #ccdad1;
+  color: #a3d9ff;
 }
 
 .title:hover {
@@ -28,11 +28,12 @@
 
 .nav > a {
   text-decoration: none;
-  color: #ccdad1;
+  color: #a3d9ff;
   border-bottom: 1px solid transparent;
   padding: 2px;
 }
 
 .nav > a:hover {
+  color: #e28413;
   border-bottom: 1px solid #e28413;
 }

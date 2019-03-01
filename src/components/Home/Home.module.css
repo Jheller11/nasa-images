@@ -1,6 +1,8 @@
 .homeContainer {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  font-size: 120%;
+  font-weight: 300;
 }
 
 .homeText {
@@ -12,5 +14,9 @@
 }
 
 .homeListItem > a {
+  color: #a3d9ff;
+}
+
+.homeListItem > a:hover {
   color: #e28413;
 }
