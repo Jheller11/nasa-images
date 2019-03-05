@@ -2,7 +2,7 @@
 
 ## Deployed Application
 
-"http://nasa-image-search.surge.sh"
+http://nasa-image-search.surge.sh
 
 ## Description
 
@@ -10,11 +10,11 @@ This application provides access to the EPIC API, Image and Video API, and APOD 
 
 ## Tasks
 
-[x] Update to CRA 2.0
-[ ] Clean up presentation of Epic slideshow
-[ ] Expand testing
-[ ] Improve list of links in when clicking on a result (add data)
-[ ] Add more data sources
+- [x] Update to CRA 2.0
+- [ ] Clean up presentation of Epic slideshow
+- [ ] Expand testing
+- [ ] Improve list of links in when clicking on a result (add data)
+- [ ] Add more data sources
 
 ## Built With
 
