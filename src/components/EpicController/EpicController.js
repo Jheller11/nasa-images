@@ -3,19 +3,19 @@ import React from 'react'
 const EpicController = props => {
   return (
     <div>
-      <button className="epic-button" type="submit" onClick={props.decrement}>
-        <i className="fa fa-chevron-left" /> Previous
-      </button>
-      <button className="epic-button" type="submit" onClick={props.increment}>
-        Next <i className="fa fa-chevron-right" />
-      </button>
       <div>
-        <p>Type:</p>
-        <button className="epic-button" onClick={props.setNatural}>
-          Natural
+        <p>Viewing: {props.active + 1} of 12</p>
+        <button type="submit" onClick={props.decrement}>
+          <i className="fa fa-chevron-left" /> Previous
         </button>
-        <button className="epic-button" onClick={props.setEnhanced}>
-          Enhanced
+        <button type="submit" onClick={props.increment}>
+          Next <i className="fa fa-chevron-right" />
+        </button>
+      </div>
+      <div>
+        <p>Type: {props.type === 'natural' ? 'Natural' : 'Enhanced'}</p>
+        <button onClick={props.setType}>
+          Switch to {props.type === 'natural' ? 'Enhanced' : 'Natural'}
         </button>
       </div>
     </div>

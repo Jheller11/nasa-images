@@ -9,34 +9,34 @@ class Epic extends Component {
     this.state = {
       images: [],
       url: 'https://epic.gsfc.nasa.gov/api/',
-      active: null,
+      active: 0,
       loading: true,
-      type: 'natural'
+      type: 'natural',
+      natural: [],
+      enhanced: []
     }
 
-    this.setNatural = this.setNatural.bind(this)
     this.increment = this.increment.bind(this)
     this.decrement = this.decrement.bind(this)
-    this.setEnhanced = this.setEnhanced.bind(this)
-    this.fetch = this.fetch.bind(this)
+    this.setType = this.setType.bind(this)
   }
 
   // fetch EPIC most recent natural images
   componentDidMount() {
-    this.fetch()
-  }
-
-  // fetch new images
-  fetch() {
     axios
-      .get(this.state.url + this.state.type)
-      .then(res => {
-        this.setState({
-          images: res.data,
-          loading: false,
-          active: 0
+      .all([
+        axios.get(this.state.url + 'natural'),
+        axios.get(this.state.url + 'enhanced')
+      ])
+      .then(
+        axios.spread((naturalRes, enhancedRes) => {
+          this.setState({
+            natural: naturalRes.data,
+            enhanced: enhancedRes.data,
+            loading: false
+          })
         })
-      })
+      )
       .catch(err => {
         console.log(err)
       })
@@ -61,75 +61,75 @@ class Epic extends Component {
         })
   }
 
-  // enhanced
-  setEnhanced() {
+  // set type of image in state to display correct image set
+  setType() {
+    let type = this.state.type === 'natural' ? 'enhanced' : 'natural'
     this.setState({
-      type: 'enhanced',
-      loading: true,
-      images: []
+      type: type
     })
-    this.fetch()
-  }
-
-  // natural
-  setNatural() {
-    this.setState({
-      type: 'natural',
-      loading: true,
-      images: []
-    })
-    this.fetch()
   }
 
   render() {
-    let slideshow,
-      activeImage,
-      data = ''
-    if (this.state.loading) {
-      slideshow = <div>Slideshow loading...</div>
-    } else {
-      activeImage = this.state.images[this.state.active]
-      slideshow = (
-        <img
-          src={`https://epic.gsfc.nasa.gov/archive/${
-            this.state.type
-          }/${activeImage.date.slice(0, 4)}/${activeImage.date.slice(
-            5,
-            7
-          )}/${activeImage.date.slice(8, 10)}/png/${activeImage.image}.png`}
-          alt={activeImage.identifier}
-          key={activeImage.identifier}
-          className={styles.image}
-        />
-      )
-      data = <p>Date: {activeImage.date.slice(0, 10)}</p>
-    }
-
     return (
       <div>
-        <h4>EPIC: Earth Plychromatic Imaging Camera</h4>
-        <p />
-        <div>
-          <div>{slideshow}</div>
-          <div>
-            <div className="controls">
-              <h3>Controls</h3>
-              <p>
-                Image {this.state.active + 1} of {this.state.images.length}
-              </p>
-              <EpicController
-                increment={this.increment}
-                decrement={this.decrement}
-                setNatural={this.setNatural}
-                setEnhanced={this.setEnhanced}
-              />
-            </div>
-            <div className="data">{data}</div>
-          </div>
-        </div>
+        <EpicController
+          active={this.state.active}
+          type={this.state.type}
+          increment={this.increment}
+          decrement={this.decrement}
+          setType={this.setType}
+        />
       </div>
     )
   }
 }
 
 export default Epic
+
+// let slideshow,
+// activeImage,
+// data = ''
+// if (this.state.loading) {
+// slideshow = <div>Slideshow loading...</div>
+// } else {
+// activeImage = this.state.natural[this.state.active]
+// slideshow = (
+//   <img
+//     src={`https://epic.gsfc.nasa.gov/archive/${
+//       this.state.type
+//     }/${activeImage.date.slice(0, 4)}/${activeImage.date.slice(
+//       5,
+//       7
+//     )}/${activeImage.date.slice(8, 10)}/png/${activeImage.image}.png`}
+//     alt={activeImage.identifier}
+//     key={activeImage.identifier}
+//     className={styles.image}
+//   />
+// )
+// data = <p>Date: {activeImage.date.slice(0, 10)}</p>
+// }
+
+// return (
+// <div>
+//   <h4>EPIC: Earth Plychromatic Imaging Camera</h4>
+//   <p />
+//   <div>
+//     <div>{slideshow}</div>
+//     <div>
+//       <div className="controls">
+//         <h3>Controls</h3>
+//         <p>
+//           Image {this.state.active + 1} of {this.state.images.length}
+//         </p>
+//         <EpicController
+//           increment={this.increment}
+//           decrement={this.decrement}
+//           setNatural={this.setNatural}
+//           setEnhanced={this.setEnhanced}
+//         />
+//       </div>
+//       <div className="data">{data}</div>
+//     </div>
+//   </div>
+// </div>
+// )

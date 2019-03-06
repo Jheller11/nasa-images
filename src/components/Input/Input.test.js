@@ -16,13 +16,19 @@ describe('Input Component', () => {
       label: 'Free Text',
       description: 'Search by all fields.'
     }
-    const input = shallow(<Input {...props} />)
+    const input = shallow(
+      <Input
+        name={props.name}
+        label={props.label}
+        description={props.description}
+      />
+    )
     const label = input.find('label')
     expect(label.length).toEqual(1)
     expect(label.text()).toMatch(props.label)
-    const span = input.find('span')
-    expect(span.length).toEqual(1)
-    expect(span.text()).toMatch(`(${props.description})`)
+    const small = input.find('small')
+    expect(small.length).toEqual(1)
+    expect(small.text()).toMatch(props.description)
     const htmlInput = input.find('input')
     expect(htmlInput.length).toEqual(1)
   })

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import styles from './ResultViewer.module.css'
 import axios from 'axios'
 
 class ResultViewer extends Component {
