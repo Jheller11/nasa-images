@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './EpicController.module.css'
 
 const EpicController = props => {
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <p>Viewing: {props.active + 1} of 12</p>
         <button type="submit" onClick={props.decrement}>

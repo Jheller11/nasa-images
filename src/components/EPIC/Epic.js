@@ -74,26 +74,25 @@ class Epic extends Component {
     return this.state.loading ? (
       <LoadingScreen />
     ) : (
-      <div>
-        <div className={styles.container}>
-          <img
-            src={`https://epic.gsfc.nasa.gov/archive/${
-              this.state.type
-            }/${this.state[this.state.type][this.state.active].date.slice(
-              0,
-              4
-            )}/${this.state[this.state.type][this.state.active].date.slice(
-              5,
-              7
-            )}/${this.state[this.state.type][this.state.active].date.slice(
-              8,
-              10
-            )}/png/${this.state[this.state.type][this.state.active].image}.png`}
-            alt={this.state[this.state.type][this.state.active].identifier}
-            key={this.state[this.state.type][this.state.active].identifier}
-            className={styles.image}
-          />
-        </div>
+      <div className={styles.container}>
+        <img
+          src={`https://epic.gsfc.nasa.gov/archive/${
+            this.state.type
+          }/${this.state[this.state.type][this.state.active].date.slice(
+            0,
+            4
+          )}/${this.state[this.state.type][this.state.active].date.slice(
+            5,
+            7
+          )}/${this.state[this.state.type][this.state.active].date.slice(
+            8,
+            10
+          )}/png/${this.state[this.state.type][this.state.active].image}.png`}
+          alt={this.state[this.state.type][this.state.active].identifier}
+          key={this.state[this.state.type][this.state.active].identifier}
+          className={styles.image}
+        />
+
         <EpicController
           active={this.state.active}
           type={this.state.type}
