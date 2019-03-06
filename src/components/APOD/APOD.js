@@ -52,7 +52,7 @@ class APOD extends Component {
         />
       )
     }
-    let render = this.state.loading ? (
+    return this.state.loading ? (
       <LoadingScreen />
     ) : (
       <div>
@@ -63,8 +63,6 @@ class APOD extends Component {
         <p className={styles.description}>{this.state.explanation}</p>
       </div>
     )
-
-    return <div>{render}</div>
   }
 }
 

@@ -75,8 +75,6 @@ class SearchContainer extends Component {
       .then(res => {
         // store data response in state of App component
         this.props.setResults(res.data.collection.items)
-        // store search query in state of App component
-        this.props.saveSearch(url)
         // redirect to appropriate results container/table
         this.state.media_type === 'image'
           ? this.props.history.push('/results/images')

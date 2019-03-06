@@ -24,7 +24,6 @@ class App extends Component {
     }
 
     this.setResults = this.setResults.bind(this)
-    this.saveSearch = this.saveSearch.bind(this)
     this.saveErr = this.saveErr.bind(this)
   }
 
@@ -32,14 +31,6 @@ class App extends Component {
     this.setState({
       results: results,
       media_type: results[0].data[0].media_type
-    })
-  }
-
-  saveSearch(search) {
-    let searches = this.state.history
-    searches.push(search)
-    this.setState({
-      history: searches
     })
   }
 
@@ -61,7 +52,6 @@ class App extends Component {
                 <SearchContainer
                   {...props}
                   setResults={this.setResults}
-                  saveSearch={this.saveSearch}
                   searchHistory={this.state.history}
                   saved={this.state.saved}
                 />
