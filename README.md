@@ -13,11 +13,9 @@ This application provides access to the EPIC API, Image and Video API, and APOD 
 - [x] Update to CRA 2.0
 - [x] Refactor Epic (remove bug when switching between image types)
 - [x] Clean up presentation of Epic slideshow
+- [ ] Make app mobile friendly
 - [ ] Expand testing
 - [ ] Improve list of links in when clicking on a result (add data)
 - [ ] Add more data sources
 - [ ] Refactor to use Loading component as HOC (see resources.md for tutorial)
-
-## Built With
-
-1. React
+- [ ] Add dev blog
