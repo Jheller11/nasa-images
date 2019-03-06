@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import EpicController from '../EpicController/EpicController'
 import axios from 'axios'
 import styles from './Epic.module.css'
+import LoadingScreen from '../LoadingScreen/LoadingScreen'
 
 class Epic extends Component {
   constructor() {
@@ -70,8 +71,29 @@ class Epic extends Component {
   }
 
   render() {
-    return (
+    return this.state.loading ? (
+      <LoadingScreen />
+    ) : (
       <div>
+        <div className={styles.container}>
+          <img
+            src={`https://epic.gsfc.nasa.gov/archive/${
+              this.state.type
+            }/${this.state[this.state.type][this.state.active].date.slice(
+              0,
+              4
+            )}/${this.state[this.state.type][this.state.active].date.slice(
+              5,
+              7
+            )}/${this.state[this.state.type][this.state.active].date.slice(
+              8,
+              10
+            )}/png/${this.state[this.state.type][this.state.active].image}.png`}
+            alt={this.state[this.state.type][this.state.active].identifier}
+            key={this.state[this.state.type][this.state.active].identifier}
+            className={styles.image}
+          />
+        </div>
         <EpicController
           active={this.state.active}
           type={this.state.type}
@@ -85,51 +107,3 @@ class Epic extends Component {
 }
 
 export default Epic
-
-// let slideshow,
-// activeImage,
-// data = ''
-// if (this.state.loading) {
-// slideshow = <div>Slideshow loading...</div>
-// } else {
-// activeImage = this.state.natural[this.state.active]
-// slideshow = (
-//   <img
-//     src={`https://epic.gsfc.nasa.gov/archive/${
-//       this.state.type
-//     }/${activeImage.date.slice(0, 4)}/${activeImage.date.slice(
-//       5,
-//       7
-//     )}/${activeImage.date.slice(8, 10)}/png/${activeImage.image}.png`}
-//     alt={activeImage.identifier}
-//     key={activeImage.identifier}
-//     className={styles.image}
-//   />
-// )
-// data = <p>Date: {activeImage.date.slice(0, 10)}</p>
-// }
-
-// return (
-// <div>
-//   <h4>EPIC: Earth Plychromatic Imaging Camera</h4>
-//   <p />
-//   <div>
-//     <div>{slideshow}</div>
-//     <div>
-//       <div className="controls">
-//         <h3>Controls</h3>
-//         <p>
-//           Image {this.state.active + 1} of {this.state.images.length}
-//         </p>
-//         <EpicController
-//           increment={this.increment}
-//           decrement={this.decrement}
-//           setNatural={this.setNatural}
-//           setEnhanced={this.setEnhanced}
-//         />
-//       </div>
-//       <div className="data">{data}</div>
-//     </div>
-//   </div>
-// </div>
-// )
