@@ -12,6 +12,7 @@ import Epic from './components/EPIC/Epic'
 import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
 import ResultViewer from './components/ResultViewer/ResultViewer'
+import Blog from './blog/Blog'
 
 class App extends Component {
   constructor() {
@@ -85,6 +86,7 @@ class App extends Component {
                 <ResultViewer {...props} results={this.state.results} />
               )}
             />
+            <Route path="/blog" render={() => <Blog />} />
             <Route path="/" render={() => <Home />} />
           </Switch>
         </main>
