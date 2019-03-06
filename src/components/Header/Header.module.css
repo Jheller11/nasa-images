@@ -37,3 +37,7 @@
   color: #e28413;
   border-bottom: 1px solid #e28413;
 }
+
+nav > a:active {
+  transform: scale(0.95);
+}
