@@ -1,17 +1,19 @@
 .container {
   color: #a3d9ff;
   text-align: center;
+  padding-top: 100px;
 }
 
-button {
+.epicButton {
   display: inline-block;
   border: none;
   padding: 0.5rem 1rem;
   margin-left: 2px;
+  font-size: 14px;
   width: 8em;
   text-decoration: none;
   background: #0069ed;
-  color: #ffffff;
+  color: #fffbfc;
   font-family: sans-serif;
   cursor: pointer;
   text-align: center;
@@ -20,16 +22,16 @@ button {
   -moz-appearance: none;
 }
 
-button:hover,
-button:focus {
+.epicButton:hover,
+.epicButton:focus {
   background: #0053ba;
 }
 
-button:focus {
+.epicButton:focus {
   outline: 1px solid #a3d9ff;
-  outline-offset: -4px;
+  outline-offset: -3px;
 }
 
-button:active {
+.epicButton:active {
   transform: scale(0.99);
 }

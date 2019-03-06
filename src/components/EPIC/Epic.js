@@ -92,7 +92,6 @@ class Epic extends Component {
           key={this.state[this.state.type][this.state.active].identifier}
           className={styles.image}
         />
-
         <EpicController
           active={this.state.active}
           type={this.state.type}
