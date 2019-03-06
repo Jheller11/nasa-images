@@ -7,3 +7,7 @@
 2. https://github.com/axios/axios/issues/371
 
    - Axios multiple requests simultaneously (used for EPIC component to fetch both natural and enhanced images on component render)
+
+3. https://medium.com/@Farzad_YZ/handle-loadings-in-react-by-using-higher-order-components-2ee8de9c3deb
+
+   - simple HOC (higher order component) explainer (to be implemented later with my loading screen component)
