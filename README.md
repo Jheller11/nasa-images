@@ -18,4 +18,4 @@ This application provides access to the EPIC API, Image and Video API, and APOD 
 - [ ] Improve list of links in when clicking on a result (add data)
 - [ ] Add more data sources
 - [ ] Refactor to use Loading component as HOC (see resources.md for tutorial)
-- [ ] Add dev blog
+- [x] Add dev blog
