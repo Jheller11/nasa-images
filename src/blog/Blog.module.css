@@ -1,0 +1,30 @@
+.postList {
+  /* container for all posts */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.post {
+  /* container for each post */
+  min-height: 200px;
+  background-color: #fffbfc;
+  color: #1e2327;
+  margin-top: 1em;
+}
+
+.post > h2 {
+  /* post title */
+  background-color: #a3d9ff;
+  margin: 0;
+  padding: 0.5em 1em;
+}
+
+.post > h3 {
+  /* date */
+  padding: 0 1em;
+}
+
+.post > p {
+  /* post normal text */
+  padding: 0 1em;
+}
