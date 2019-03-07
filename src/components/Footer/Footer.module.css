@@ -1,6 +1,16 @@
 .footer {
   margin-top: 3em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer > div {
   text-align: center;
+}
+
+.links > p > a {
+  display: block;
+  padding: 0.25em 0;
 }
 
 .nav > * {
