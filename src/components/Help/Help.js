@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const Help = () => {
   return (
-    <div>
+    <Fragment>
       <h3>About:</h3>
       <p>
         This application is designed to access several of NASA's open data
@@ -54,7 +54,7 @@ const Help = () => {
           </p>
         </li>
       </ul>
-    </div>
+    </Fragment>
   )
 }
 

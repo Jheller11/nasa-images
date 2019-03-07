@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import LoadingScreen from '../LoadingScreen/LoadingScreen'
 import styles from './APOD.module.css'
@@ -55,13 +55,13 @@ class APOD extends Component {
     return this.state.loading ? (
       <LoadingScreen />
     ) : (
-      <div>
+      <Fragment>
         <h1 className={styles.title}>
           {this.state.title} ({this.state.date})
         </h1>
         <div>{media}</div>
         <p className={styles.description}>{this.state.explanation}</p>
-      </div>
+      </Fragment>
     )
   }
 }

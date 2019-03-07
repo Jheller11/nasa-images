@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import styles from './ResultViewer.module.css'
 
@@ -28,7 +28,7 @@ class ResultViewer extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {this.state.result ? (
           <img
             className={styles.image}
@@ -48,7 +48,7 @@ class ResultViewer extends Component {
             </p>
           )
         })}
-      </div>
+      </Fragment>
     )
   }
 }

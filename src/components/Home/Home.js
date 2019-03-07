@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 
 const Home = () => {
   return (
-    <div>
+    <Fragment>
       <div className={styles.hero}>
         <div className={styles.title} />
       </div>
@@ -42,7 +42,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

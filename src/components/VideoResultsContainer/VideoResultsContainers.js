@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styles from './VideoResultsContainer.module.css'
 import { Link } from 'react-router-dom'
 
 const VideoResultsContainer = props => {
   return (
-    <div>
+    <Fragment>
       <small>
         {props.results.length} results. Click on a result to view media
         collection from NASA.
@@ -26,7 +26,7 @@ const VideoResultsContainer = props => {
             })
           : 'No results found. Please try again.'}
       </ul>
-    </div>
+    </Fragment>
   )
 }
 

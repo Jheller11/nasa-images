@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const Error = props => {
   return (
-    <div>
+    <Fragment>
       <p>{props.error}</p>
       <span>Please try again.</span>
-    </div>
+    </Fragment>
   )
 }
 
