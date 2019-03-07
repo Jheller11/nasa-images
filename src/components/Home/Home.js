@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <Fragment>
       <div className={styles.hero}>
-        <div className={styles.title} />
+        <img src={'hero.jpg'} alt="stars" />
       </div>
       <h1 className={styles.optionsHeader}>Resources</h1>
       <div className={styles.options}>
