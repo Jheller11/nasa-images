@@ -42,28 +42,6 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className={styles.extras}>
-        <div className={styles.info}>
-          <p />
-        </div>
-        <div className={styles.twitterContainer}>
-          <a
-            className="twitter-timeline"
-            data-theme="dark"
-            data-link-color="#E95F28"
-            data-width="500px"
-            data-height="600px"
-            href="https://twitter.com/NASA?ref_src=twsrc%5Etfw"
-          >
-            Tweets by NASA
-          </a>{' '}
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charSet="utf-8"
-          />
-        </div>
-      </div>
     </div>
   )
 }

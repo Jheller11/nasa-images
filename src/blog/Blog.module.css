@@ -10,6 +10,7 @@
   background-color: #fffbfc;
   color: #1e2327;
   margin-top: 1em;
+  padding-bottom: 1em;
 }
 
 .post > h2 {
@@ -26,5 +27,9 @@
 
 .post > p {
   /* post normal text */
+  padding: 0 1em;
+}
+
+.post > table {
   padding: 0 1em;
 }
