@@ -41,3 +41,19 @@
 nav > a:active {
   transform: scale(0.95);
 }
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    border-bottom: 1px solid gray;
+  }
+
+  .nav {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nav > a:before {
+    content: '- ';
+  }
+}
