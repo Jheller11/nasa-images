@@ -35,3 +35,9 @@
 .epicButton:active {
   transform: scale(0.99);
 }
+
+@media (max-width: 500px) {
+  .container {
+    padding: 0;
+  }
+}
