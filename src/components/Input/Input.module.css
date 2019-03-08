@@ -7,3 +7,9 @@
 .helperText {
   padding-left: 0.5em;
 }
+
+@media (max-width: 500px) {
+  .formGroup {
+    grid-template-columns: 40% 60%;
+  }
+}
