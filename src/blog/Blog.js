@@ -24,7 +24,6 @@ class Blog extends Component {
   }
 
   render() {
-    console.log(this.state.posts)
     return (
       <div className={styles.postList}>
         {this.state.posts.map((post, i) => (
