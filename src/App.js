@@ -1,18 +1,60 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
-import SearchContainer from './components/SearchContainer/SearchContainer'
-import ImageResultsContainer from './components/ImageResultsContainer/ImageResultsContainer'
 import Header from './components/Header/Header'
-import APOD from './components/APOD/APOD'
-import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
-import Help from './components/Help/Help'
-import Error from './components/Error/Error'
-import Epic from './components/EPIC/Epic'
-import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
-import ResultViewer from './components/ResultViewer/ResultViewer'
-import Blog from './blog/Blog'
+
+// import SearchContainer from './components/SearchContainer/SearchContainer'
+// import ImageResultsContainer from './components/ImageResultsContainer/ImageResultsContainer'
+// import APOD from './components/APOD/APOD'
+// import VideoResultsContainer from './components/VideoResultsContainer/VideoResultsContainers'
+// import Help from './components/Help/Help'
+// import Error from './components/Error/Error'
+// import Epic from './components/EPIC/Epic'
+// import Home from './components/Home/Home'
+// import ResultViewer from './components/ResultViewer/ResultViewer'
+// import Blog from './blog/Blog'
+
+import asyncComponent from './components/AsyncComponent/AsyncComponent'
+
+const Home = asyncComponent(() =>
+  import('./components/Home/Home').then(module => module.default)
+)
+const Blog = asyncComponent(() =>
+  import('./blog/Blog').then(module => module.default)
+)
+const SearchContainer = asyncComponent(() =>
+  import('./components/SearchContainer/SearchContainer').then(
+    module => module.default
+  )
+)
+const ImageResultsContainer = asyncComponent(() =>
+  import('./components/ImageResultsContainer/ImageResultsContainer').then(
+    module => module.default
+  )
+)
+const VideoResultsContainer = asyncComponent(() =>
+  import('./components/VideoResultsContainer/VideoResultsContainer').then(
+    module => module.default
+  )
+)
+const APOD = asyncComponent(() =>
+  import('./components/APOD/APOD').then(module => module.default)
+)
+const EPIC = asyncComponent(() =>
+  import('./components/EPIC/EPIC').then(module => module.default)
+)
+const Help = asyncComponent(() =>
+  import('./components/Help/Help').then(module => module.default)
+)
+const Error = asyncComponent(() =>
+  import('./components/Error/Error').then(module => module.default)
+)
+const ResultViewer = asyncComponent(() =>
+  import('./components/ResultViewer/ResultViewer').then(
+    module => module.default
+  )
+)
 
 class App extends Component {
   constructor() {
@@ -74,7 +116,7 @@ class App extends Component {
               path="/apod"
               render={props => <APOD {...props} saveErr={this.saveErr} />}
             />
-            <Route path="/epic" render={() => <Epic />} />
+            <Route path="/epic" render={() => <EPIC />} />
             <Route path="/help" render={() => <Help />} />
             <Route
               path="/error"
