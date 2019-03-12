@@ -49,8 +49,7 @@ nav > a:active {
   }
 
   .nav {
-    width: 100%;
-    flex-direction: column;
+    display: none;
   }
 
   .nav > a:before {

@@ -22,4 +22,7 @@
     flex-direction: column-reverse;
     border-top: 1px solid gray;
   }
+  .links > p > a {
+    padding: 10px 0;
+  }
 }

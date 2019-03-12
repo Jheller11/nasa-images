@@ -19,3 +19,7 @@
 5. https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
 
    - Used this as a tutorial for adding dev blog. New posts just written in markdown
+
+6. https://scotch.io/tutorials/lazy-loading-routes-in-react
+
+   - code splitting/lazy loading react components tutorial

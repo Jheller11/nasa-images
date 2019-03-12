@@ -8,6 +8,11 @@
   margin: auto;
 }
 
+.apodVideo {
+  margin: auto;
+  display: block;
+}
+
 .description {
   text-align: center;
   padding: 1em;
