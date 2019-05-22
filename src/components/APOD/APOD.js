@@ -8,7 +8,7 @@ class APOD extends Component {
     super(props)
     this.state = {
       mediaType: 'image',
-      url: 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY',
+      url: 'http://localhost:4000/nasa/apod',
       src: 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY',
       title: '',
       explanation: '',
