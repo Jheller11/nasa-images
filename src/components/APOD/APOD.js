@@ -8,8 +8,11 @@ class APOD extends Component {
     super(props)
     this.state = {
       mediaType: 'image',
-      url: 'http://localhost:4000/nasa/apod',
-      src: 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY',
+      url:
+        process.env.NODE_ENV === 'production'
+          ? process.env.REACT_APP_NODE_SERVER_URL + '/nasa/apod'
+          : 'http://localhost:4000/nasa/apod',
+      src: 'https://api.nasa.gov/planetary/apod',
       title: '',
       explanation: '',
       date: '',

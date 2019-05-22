@@ -9,7 +9,10 @@ class Epic extends Component {
     super()
     this.state = {
       images: [],
-      url: 'https://epic.gsfc.nasa.gov/api/',
+      url:
+        process.env.NODE_ENV === 'production'
+          ? process.env.REACT_APP_NODE_SERVER_URL + '/nasa/epic/'
+          : 'http://localhost:4000/nasa/epic/',
       active: 0,
       loading: true,
       type: 'natural',
