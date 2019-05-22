@@ -69,9 +69,13 @@ class SearchContainer extends Component {
   }
 
   performSearch(url) {
+    let serverURL =
+      process.env.NODE_ENV === 'production'
+        ? process.env.REACT_APP_NODE_SERVER_URL + '/nasa/search'
+        : 'http://localhost:4000/nasa/search'
     // use axios to fetch data with url passed up by SearchContainer
     axios
-      .get(url)
+      .post(serverURL, querystring.stringify({ url: url }))
       .then(res => {
         // store data response in state of App component
         this.props.setResults(res.data.collection.items)
