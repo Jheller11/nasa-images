@@ -1,3 +1,6 @@
+.form {
+}
+
 .button {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
@@ -16,7 +19,7 @@
 
 .status {
   padding-top: 2em;
-  color: #e28413;
+  color: #ccdad1;
 }
 
 .searchButton {

@@ -47,6 +47,10 @@ class SearchContainer extends Component {
     this.performSearch = this.performSearch.bind(this)
   }
 
+  componentDidMount() {
+    this.props.clearResults()
+  }
+
   handleChange(e) {
     e.preventDefault()
     let target = e.target.name
@@ -117,7 +121,7 @@ class SearchContainer extends Component {
       )
     }
     return (
-      <div className="search-container">
+      <>
         <h4>New Search:</h4>
         <div>
           Mode:
@@ -134,15 +138,15 @@ class SearchContainer extends Component {
             Advanced
           </button>
         </div>
-        <div className={styles.status}>
-          {this.state.simple ? 'Simple Search' : 'Advanced Search'}
-        </div>
-        <MediaSelector handleChange={this.handleChange} />
-        <div>{inputs}</div>
-        <button className={styles.searchButton} onClick={this.constructURL}>
-          Search
-        </button>
-      </div>
+        <form onSubmit={this.constructURL} className={styles.form}>
+          <h4 className={styles.status}>Query:</h4>
+          <MediaSelector handleChange={this.handleChange} />
+          <div>{inputs}</div>
+          <button className={styles.searchButton} type="submit">
+            Search
+          </button>
+        </form>
+      </>
     )
   }
 }

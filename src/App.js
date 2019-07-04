@@ -66,8 +66,16 @@ class App extends Component {
       results: []
     }
 
+    this.clearResults = this.clearResults.bind(this)
     this.setResults = this.setResults.bind(this)
     this.saveErr = this.saveErr.bind(this)
+  }
+
+  clearResults() {
+    this.setState({
+      results: [],
+      media_type: ''
+    })
   }
 
   setResults(results) {
@@ -94,6 +102,7 @@ class App extends Component {
               render={props => (
                 <SearchContainer
                   {...props}
+                  clearResults={this.clearResults}
                   setResults={this.setResults}
                   searchHistory={this.state.history}
                   saved={this.state.saved}
